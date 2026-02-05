@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="shortcut icon" href="logo.ico" type="image/x-icon" width="50vh" height="50vh">
+     <title>The Youth Contest | Beyond Vision</title>
+
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+     <style>
+          :root {
+               --primary: #1c3c6b;
+               --secondary: #f2b705;
+               --accent: #e63946;
+          }
+
+          * {
+               margin: 0;
+               padding: 0;
+               box-sizing: border-box;
+               font-family: Poppins;
+          }
+
+          body {
+               color: #333
+          }
+
+          /* NAV */
+          nav {
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+               padding: 15px 8%;
+               background: white;
+               box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+               position: sticky;
+               top: 0;
+               z-index: 999;
+          }
+
+          .logo {
+               display: flex;
+               align-items: center;
+               gap: 10px;
+               font-weight: 900;
+               color: var(--primary);
+          }
+
+          .logo img {
+               height: 100px;
+               border: 5px solid white;
+               border-radius: 1000px;
+          }
+
+          .nav-links {
+               display: flex;
+               gap: 30px;
+          }
+
+          .nav-links a {
+               text-decoration: none;
+               color: var(--primary);
+               font-weight: 600;
+          }
+
+          .menu-toggle {
+               display: none;
+               font-size: 25px;
+               cursor: pointer
+          }
+
+          /* CEO SECTION */
+
+          .ceo-welcome {
+               padding: 80px 8%;
+               background: #f9f9f9;
+          }
+
+          .ceo-container {
+               display: grid;
+               grid-template-columns: 1fr 1.3fr;
+               gap: 50px;
+               align-items: center;
+          }
+
+          .ceo-image img {
+               width: 100%;
+               border-radius: 1000px;
+               box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+          }
+
+          .ceo-message h2 {
+               color: var(--primary)
+          }
+
+          .ceo-message h4 {
+               color: var(--secondary);
+               margin: 15px 0
+          }
+
+          .ceo-message p {
+               margin-bottom: 15px;
+               line-height: 1.7
+          }
+
+          .ceo-signature {
+               font-weight: 600;
+               color: var(--accent);
+               margin-top: 15px
+          }
+
+          /* HERO */
+
+          .hero {
+               height: 90vh;
+               position: relative;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               text-align: center;
+               color: #f1ecec;
+               overflow: hidden;
+               background-image: url(KCC.png);
+          }
+
+
+
+          .hero::after {
+               content: '';
+               position: absolute;
+               width: 100%;
+               height: 100%;
+               background: rgba(0, 0, 0, 0.5);
+          }
+
+          .hero-content {
+               z-index: 2;
+               max-width: 700px
+          }
+
+          .btn {
+               background: var(--secondary);
+               padding: 12px 28px;
+               border-radius: 6px;
+               color: white;
+               text-decoration: none;
+               display: inline-block;
+               margin-top: 20px;
+               transition: 0.3s;
+          }
+
+          .btn:hover {
+               background: var(--accent)
+          }
+
+          /* SECTIONS */
+          section {
+               padding: 80px 8%
+          }
+
+          .section-title {
+               text-align: center;
+               color: var(--primary);
+               margin-bottom: 40px
+          }
+
+          /* CARDS */
+
+          .mv {
+               display: grid;
+               grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+               gap: 30px;
+          }
+
+          .card {
+               background: white;
+               padding: 30px;
+               border-radius: 12px;
+               box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+               text-align: center;
+               transition: 0.3s;
+          }
+
+          .card:hover {
+               transform: translateY(-8px)
+          }
+
+          .card i {
+               font-size: 40px;
+               color: var(--secondary);
+               margin-bottom: 15px;
+          }
+
+          /* IMPACT */
+
+          .impact {
+               background: url('coder.png') center/cover no-repeat;
+               color: white;
+               text-align: center;
+          }
+
+          .impact-grid {
+               display: grid;
+               grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+               gap: 30px;
+          }
+
+          .counter {
+               font-size: 40px;
+               font-weight: 700
+          }
+
+          /* CONTACT */
+
+          .involved-grid {
+               display: grid;
+               grid-template-columns: 1fr 1fr;
+               gap: 40px;
+          }
+
+          .contact-card {
+               background: white;
+               padding: 30px;
+               border-radius: 12px;
+               box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+          }
+
+          .input-box {
+               position: relative;
+               margin-bottom: 20px;
+          }
+
+          .input-box i {
+               position: absolute;
+               top: 12px;
+               left: 12px;
+               color: gray;
+          }
+
+          .input-box input,
+          .input-box textarea {
+               width: 100%;
+               padding: 12px 12px 12px 40px;
+               border: 1px solid #ccc;
+               border-radius: 6px;
+          }
+
+          /* CTA */
+
+          .cta {
+               background: #dadce0;
+               color: #1302f8;
+               text-align: center;
+               padding: 100px 20px;
+
+          }
+
+          .cta button {
+               margin: 10px;
+               padding: 12px 25px;
+               border: none;
+               background: #FFD700;
+               cursor: pointer;
+               font-weight: bold;
+               transition: .3s;
+          }
+
+          .cta button:hover {
+               background: white;
+               color: hsl(214, 91%, 56%);
+          }
+
+          /* FOOTER */
+
+          footer {
+               background: var(--primary);
+               color: white;
+               padding: 60px 8%;
+          }
+
+          .footer-grid {
+               display: grid;
+               grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+               gap: 40px;
+          }
+
+          footer h4 {
+               color: var(--secondary);
+               margin-bottom: 15px
+          }
+
+          footer a {
+               color: white;
+               text-decoration: none;
+               display: block;
+               margin-bottom: 8px;
+               transition: 0.3s;
+          }
+
+          footer a:hover {
+               text-decoration: underline;
+          }
+
+          .footer-line {
+               margin: 40px 0;
+               border: 1px solid rgba(255, 255, 255, 0.2);
+          }
+
+          /* NEWSLETTER */
+          .newsletter {
+               display: flex;
+               margin-top: 10px;
+          }
+
+          .newsletter input {
+               flex: 1;
+               padding: 10px;
+               border: none;
+               border-radius: 6px 0 0 6px;
+          }
+
+          .newsletter button {
+               background: var(--secondary);
+               border: none;
+               color: white;
+               padding: 10px 15px;
+               border-radius: 0 6px 6px 0;
+               cursor: pointer;
+          }
+
+          /* SOCIAL */
+          .social-bottom {
+               display: flex;
+               justify-content: center;
+               gap: 25px;
+               margin-bottom: 20px;
+          }
+
+          .tooltip {
+               position: relative;
+               color: white;
+               font-size: 22px;
+          }
+
+          .tooltip span {
+               position: absolute;
+               bottom: 35px;
+               left: 50%;
+               transform: translateX(-50%);
+               background: var(--secondary);
+               padding: 5px 10px;
+               border-radius: 6px;
+               font-size: 12px;
+               opacity: 0;
+               transition: 0.3s;
+          }
+
+          .tooltip:hover span {
+               opacity: 1
+          }
+
+          .copyright {
+               text-align: center;
+               font-size: 14px;
+               opacity: 0.8
+          }
+
+          /* FLOATING */
+          .whatsapp {
+               position: fixed;
+               bottom: 20px;
+               right: 20px;
+               background: #25D366;
+               color: white;
+               padding: 14px;
+               border-radius: 50%;
+               font-size: 22px;
+          }
+
+          #backToTop {
+               position: fixed;
+               bottom: 90px;
+               right: 20px;
+               background: var(--secondary);
+               color: white;
+               border: none;
+               padding: 14px;
+               border-radius: 50%;
+               display: none;
+          }
+
+          /* MOBILE */
+          @media(max-width:768px) {
+
+               .nav-links {
+                    position: absolute;
+                    top: 70px;
+                    left: 0;
+                    width: 100%;
+                    background: white;
+                    flex-direction: column;
+                    display: none;
+                    padding: 20px 0;
+                    text-align: center;
+               }
+
+               .nav-links.active {
+                    display: flex
+               }
+
+               .menu-toggle {
+                    display: block
+               }
+
+               .ceo-container {
+                    grid-template-columns: 1fr;
+                    text-align: center
+               }
+
+               .involved-grid {
+                    grid-template-columns: 1fr
+               }
+
+          }
+     </style>
+</head>
+
+<body>
+
+     <!-- NAV -->
+     <nav>
+          <div class="logo">
+               <img src="logo.png">
+               <h2>The Youth Contest Beyond Vision</h2>
+          </div>
+
+          <div class="menu-toggle"><i class="fa fa-bars"></i></div>
+
+          <div class="nav-links">
+               <a href="index.html">Home</a>
+               <a href="about.html">About Us</a>
+               <a href="programs.html">Programs</a>
+               <a href="contact.html">Contact</a>
+               <a href="donate.html" class="active"
+                    style="color: gold; background-color: hwb(231 3% 15%);font-size: large; border-radius: 5px;hover:var(--primary)">Donate</a>
+          </div>
+     </nav>
+
+     <!-- CEO WELCOME -->
+     <section class="ceo-welcome">
+          <div class="ceo-container">
+
+               <div class="ceo-image" data-aos="fade-right">
+                    <img src="pro.png">
+               </div>
+
+               <div class="ceo-message" data-aos="fade-left">
+                    <h2>Welcome Message From The CEO</h2>
+                    <h4>MITARI PROSPER</h4>
+
+                    <p>Welcome to The Youth Contest Beyond Vision. Our mission is empowering youth through debate,
+                         public
+                         speaking and leadership.</p>
+
+                    <p>We believe communication builds confidence and transforms communities and prepares youth leaders.
+                    </p>
+
+                    <p class="ceo-signature">— CEO & Founder</p>
+
+               </div>
+
+          </div>
+     </section>
+
+     <!-- HERO -->
+     <section class="hero">
+
+          <div class="hero-content" data-aos="fade-up">
+               <h1>Empowering Youth Through Debate & Public Speaking</h1>
+               <p style="font-size: x-large;">The Youth Contest Beyond Vision cultivates fearless leaders by mastering
+                    the
+                    art of public speaking
+                    and the discipline
+                    of debate to ignite lasting change today.</p>
+               <a href="about.html" class="btn">Learn More</a>
+          </div>
+     </section>
+
+     <!-- PURPOSE -->
+     <section>
+          <h2 class="section-title">Our Purpose</h2>
+
+          <div class="mv">
+
+               <div class="card" data-aos="fade-right">
+                    <i class="fa fa-bullseye"></i>
+                    <h3>Mission</h3>
+                    <p>Empower youth through communication, leadership,debate and public speaking</p>
+               </div>
+
+               <div class="card" data-aos="fade-left">
+                    <i class="fa fa-eye"></i>
+                    <h3>Vision</h3>
+                    <p>Create confident young leaders,Communication skills ,debating spirit and Public speaking yons
+                         shaping Rwanda's future.</p>
+               </div>
+
+          </div>
+     </section>
+
+     <!-- IMPACT -->
+     <section class="impact">
+          <h2 class="section-title">Our Impact</h2>
+
+          <div class="impact-grid">
+
+               <div data-aos="zoom-in">
+                    <div class="counter" data-target="500">0</div>
+                    <p>Youths trained</p>
+               </div>
+
+               <div data-aos="zoom-in">
+                    <div class="counter" data-target="30">0</div>
+                    <p>Schools Reached</p>
+               </div>
+
+               <div data-aos="zoom-in">
+                    <div class="counter" data-target="10">0</div>
+                    <p>Events Hosted</p>
+               </div>
+               <div data-aos="zoom-in">
+                    <div class="counter" data-target="10">0</div>
+                    <p>BootCamps Hosted</p>
+               </div>
+
+          </div>
+     </section>
+     <section class="cta">
+          <h2>Join Our Mission</h2>
+
+          <a href="getinvolved.html"><button><i class="fas fa-hands-helping"></i> Volunteer</button></a>
+          <a href="donate.html"><button><i class="fas fa-donate"></i> Donate</button></a>
+          <a href="getinvolved.html"><button><i class="fas fa-handshake"></i> Partner</button></a>
+     </section>
+
+     <!-- CONTACT -->
+     <section>
+          <h2 class="section-title">Get In Touch</h2>
+
+          <div class="involved-grid">
+
+               <div class="contact-card" data-aos="fade-right">
+                    <h3>Contact Us</h3>
+
+                    <div class="input-box">
+                         <i class="fa fa-user"></i>
+                         <input placeholder="Your Name">
+                    </div>
+
+                    <div class="input-box">
+                         <i class="fa fa-envelope"></i>
+                         <input placeholder="Email">
+                    </div>
+
+                    <div class="input-box">
+                         <i class="fa fa-message"></i>
+                         <textarea placeholder="Message"></textarea>
+                    </div>
+
+                    <button class="btn">Send</button>
+               </div>
+
+               <div class="contact-card" data-aos="fade-left">
+                    <h3>Address</h3>
+                    <p><i class="fa fa-location-dot"></i> Gasabo District Kigali</p>
+                    <p><i class="fa fa-phone"></i> +250 789 000 000</p>
+                    <p><i class="fa fa-envelope"></i> theyouthcontest@gmail.com</p>
+                    <p><i class="fab fa-facebook"></i>The Youth Contest</p>
+                    <p><i class="fab fa-instagram"></i> @theyouthcontestbeyondvision</p>
+                    <p><i class="fa fa-paper-plane"></i>TYC Beyond Vision</p>
+               </div>
+
+
+          </div>
+     </section>
+
+     <!-- FOOTER -->
+     <footer>
+
+          <div class="footer-grid">
+               <div>
+                    <h2 style="color: #f2b705;">The Youth Contest Beyond Vision</h2>
+                    <p>Empowering youth through communication, leadership, debate and public speaking</p>
+               </div>
+               <div>
+                    <h4>Quick Links</h4>
+                    <a href="about.html">About us</a>
+                    <a href="programs.html">Programs</a>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="donate.html">Donate</a>
+               </div>
+
+               <div>
+                    <h4>Programs</h4>
+                    <a href="programs.html">Debate Training</a>
+                    <a href="programs.html">Debate and Public Speaking Competitions</a>
+                    <a href="programs.html">Leadership Camps</a>
+               </div>
+
+
+
+               <div>
+                    <h4>Address</h4>
+                    <p>Kigali Rwanda</p>
+                    <p>+250 789 000 000</p>
+                    <p>theyouthcontest@gmail.com</p>
+               </div>
+
+               <div>
+                    <h4>Newsletter</h4>
+                    <div class="newsletter">
+                         <input placeholder="Enter Email">
+                         <button><i class="fa fa-paper-plane"></i></button>
+                    </div>
+               </div>
+
+          </div>
+
+          <hr class="footer-line">
+
+          <div class="social-bottom">
+
+               <a href="https://theyouthcontest" class="tooltip">
+                    <i class="fab fa-facebook"></i>
+                    <span>Facebook</span>
+               </a>
+
+               <a href="https://theyouthcontest" class="tooltip">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+               </a>
+
+               <a href="https://theyouthcontest" class="tooltip">
+                    <i class="fab fa-youtube"></i>
+                    <span>YouTube</span>
+               </a>
+
+               <a href="https://theyouthcontest" class="tooltip">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+               </a>
+
+          </div>
+
+          <div class="copyright">
+               © 2026 The Youth Contest Beyond Vision Developed by <a href="https://linkedin.com/KEVIN THE CYBER CODER"
+                    style="color: #f2b705;">MUKESHIMANA KEVIN</a>
+          </div>
+
+     </footer>
+
+     <a href="+250 789 000 000" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+     <button id="backToTop"><i class="fa fa-arrow-up"></i></button>
+
+     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+     <script>
+          AOS.init();
+
+          /* MOBILE MENU */
+          document.querySelector(".menu-toggle").onclick = () => {
+               document.querySelector(".nav-links").classList.toggle("active");
+          };
+
+          /* COUNTER */
+          document.querySelectorAll('.counter').forEach(counter => {
+               const update = () => {
+                    const target = +counter.dataset.target;
+                    const count = +counter.innerText;
+                    const inc = target / 200;
+                    if (count < target) {
+                         counter.innerText = Math.ceil(count + inc);
+                         setTimeout(update, 20);
+                    } else counter.innerText = target;
+               }
+               update();
+          });
+
+          /* BACK TO TOP */
+          const back = document.getElementById("backToTop");
+
+          window.addEventListener("scroll", () => {
+               back.style.display = window.scrollY > 300 ? "block" : "none";
+          });
+
+          back.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
+     </script>
+
+</body>
+
+</html>

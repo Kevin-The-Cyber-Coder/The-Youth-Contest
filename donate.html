@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Donate | Youth Contest Beyond Vision</title>
+
+     <!-- Google Font -->
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+     <!-- FontAwesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+     <style>
+          * {
+               margin: 0;
+               padding: 0;
+               box-sizing: border-box;
+               font-family: 'Poppins', sans-serif;
+          }
+
+          body {
+               background: #f8f9fb;
+               color: #333;
+          }
+
+          /* ===== NAV ===== */
+
+          nav {
+               background: #111;
+               color: white;
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+               padding: 15px 40px;
+               position: sticky;
+               top: 0;
+               z-index: 1000;
+          }
+
+          .logo {
+               font-weight: 700;
+          }
+
+          .nav-links {
+               display: flex;
+               gap: 30px;
+          }
+
+          .nav-links a {
+               color: white;
+               text-decoration: none;
+               transition: .3s;
+          }
+
+          .nav-links a:hover {
+               color: gold;
+          }
+
+          .hamburger {
+               display: none;
+               font-size: 22px;
+               cursor: pointer;
+          }
+
+          /* ===== HERO ===== */
+
+          .hero {
+               height: 50vh;
+               background:
+                    linear-gradient(rgba(0, 0, 0, .65), rgba(0, 0, 0, .65)),
+                    url("https://images.unsplash.com/photo-1532629345422-7515f3d16bb6");
+               background-size: cover;
+               background-position: center;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               text-align: center;
+               color: white;
+          }
+
+          .hero h1 {
+               font-size: 45px;
+          }
+
+          /* ===== SECTION ===== */
+
+          section {
+               padding: 80px 10%;
+          }
+
+          /* ===== WHY DONATE ===== */
+
+          .why {
+               text-align: center;
+               max-width: 700px;
+               margin: auto;
+               margin-bottom: 60px;
+          }
+
+          /* ===== DONATION BOX ===== */
+
+          .donate-box {
+               background: white;
+               padding: 40px;
+               border-radius: 15px;
+               box-shadow: 0 10px 25px rgba(0, 0, 0, .1);
+               max-width: 700px;
+               margin: auto;
+          }
+
+          .amounts {
+               display: flex;
+               flex-wrap: wrap;
+               gap: 15px;
+               margin: 20px 0;
+          }
+
+          .amounts button {
+               padding: 12px 20px;
+               border: 2px solid gold;
+               background: none;
+               cursor: pointer;
+               font-weight: 600;
+               transition: .3s;
+          }
+
+          .amounts button:hover {
+               background: gold;
+          }
+
+          .custom-amount {
+               width: 100%;
+               padding: 12px;
+               border: 1px solid #ccc;
+               border-radius: 8px;
+               margin-bottom: 20px;
+          }
+
+          .donate-btn {
+               width: 100%;
+               padding: 14px;
+               border: none;
+               background: gold;
+               font-weight: 600;
+               cursor: pointer;
+               transition: .3s;
+          }
+
+          .donate-btn:hover {
+               transform: scale(1.05);
+          }
+
+          /* ===== PAYMENT METHODS ===== */
+
+          .payment-methods {
+               display: grid;
+               grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+               gap: 25px;
+               margin-top: 50px;
+          }
+
+          .payment-card {
+               background: white;
+               padding: 30px;
+               border-radius: 15px;
+               box-shadow: 0 8px 20px rgba(0, 0, 0, .1);
+               text-align: center;
+               transition: .3s;
+          }
+
+          .payment-card:hover {
+               transform: translateY(-8px);
+          }
+
+          .payment-card i {
+               font-size: 40px;
+               color: gold;
+               margin-bottom: 15px;
+          }
+
+          /* ===== TRUST BADGES ===== */
+
+          .trust {
+               text-align: center;
+               margin-top: 60px;
+          }
+
+          .trust i {
+               font-size: 30px;
+               margin: 15px;
+               color: gold;
+          }
+
+          /* ===== FLOAT BUTTONS ===== */
+
+          .whatsapp {
+               position: fixed;
+               bottom: 20px;
+               left: 20px;
+               background: #25d366;
+               color: white;
+               padding: 15px;
+               border-radius: 50%;
+               font-size: 22px;
+               z-index: 1000;
+          }
+
+          .top-btn {
+               position: fixed;
+               bottom: 20px;
+               right: 20px;
+               background: gold;
+               padding: 12px 16px;
+               cursor: pointer;
+               display: none;
+               z-index: 1000;
+          }
+
+          /* ===== FOOTER ===== */
+
+          footer {
+               background: #111;
+               color: white;
+               padding: 40px 10%;
+               text-align: center;
+          }
+
+          /* ===== MOBILE ===== */
+
+          @media(max-width:768px) {
+
+               .nav-links {
+                    display: none;
+                    flex-direction: column;
+                    background: #111;
+                    position: absolute;
+                    top: 60px;
+                    right: 0;
+                    width: 220px;
+                    padding: 20px;
+               }
+
+               .nav-links.show {
+                    display: flex;
+               }
+
+               .hamburger {
+                    display: block;
+               }
+
+               .hero h1 {
+                    font-size: 32px;
+               }
+
+          }
+     </style>
+</head>
+
+<body>
+
+     <!-- ===== NAV ===== -->
+
+     <nav>
+          <div class="logo">Youth Contest Beyond Vision</div>
+
+          <div class="nav-links" id="navLinks">
+               <a href="index.html">Home</a>
+               <a href="about.html">About</a>
+               <a href="programs.html">Projects</a>
+               <a href="contact.html">Contact</a>
+               <a href="#">Donate</a>
+          </div>
+
+          <div class="hamburger" onclick="toggleMenu()">
+               <i class="fas fa-bars"></i>
+          </div>
+     </nav>
+
+     <!-- ===== HERO ===== -->
+
+     <section class="hero">
+          <h1>Support Our Youth Through Donation</h1>
+     </section>
+
+     <!-- ===== WHY DONATE ===== -->
+
+     <section>
+          <div class="why">
+               <h2>Why Your Donation Matters</h2>
+               <p>
+                    Your support helps us train secondary school students in debate, leadership,
+                    peacebuilding, and communication skills. Every contribution helps empower
+                    Rwandan youth to become responsible leaders and confident speakers.
+               </p>
+          </div>
+
+          <!-- DONATION FORM -->
+
+          <div class="donate-box">
+
+               <h3>Select Donation Amount (RWF)</h3>
+
+               <div class="amounts">
+                    <button onclick="setAmount(5000)">5,000</button>
+                    <button onclick="setAmount(10000)">10,000</button>
+                    <button onclick="setAmount(25000)">25,000</button>
+                    <button onclick="setAmount(50000)">50,000</button>
+               </div>
+
+               <input type="number" id="amount" class="custom-amount" placeholder="Enter Custom Amount">
+
+               <button class="donate-btn">
+                    <i class="fas fa-heart"></i> Donate Now
+               </button>
+
+          </div>
+     </section>
+
+     <!-- ===== PAYMENT METHODS ===== -->
+
+     <section>
+
+          <h2 style="text-align:center;margin-bottom:40px;">Payment Methods</h2>
+
+          <div class="payment-methods">
+
+               <div class="payment-card">
+                    <i class="fas fa-mobile-screen"></i>
+                    <h3>Mobile Money</h3>
+                    <p>
+                         MTN / Airtel Money <br>
+                         (+250) 79000 2626
+                    </p>
+               </div>
+
+               <div class="payment-card">
+                    <i class="fas fa-university"></i>
+                    <h3>Bank Transfer</h3>
+                    <p>
+                         Bank of Kigali <br>
+                         Account Name: Youth Contest Beyond Vision <br>
+                         Account No: 000000000
+                    </p>
+               </div>
+
+               <div class="payment-card">
+                    <i class="fab fa-paypal"></i>
+                    <h3>Online Payment</h3>
+                    <p>
+                         PayPal / Online gateway support coming soon.
+                    </p>
+               </div>
+
+          </div>
+
+     </section>
+
+     <!-- ===== TRUST ===== -->
+
+     <section class="trust">
+          <h2>Your Donation Is Secure</h2>
+          <i class="fas fa-shield-halved"></i>
+          <i class="fas fa-lock"></i>
+          <i class="fas fa-hand-holding-heart"></i>
+     </section>
+
+     <!-- ===== FLOAT BUTTONS ===== -->
+
+     <a href="https://wa.me/250790002626" class="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+     </a>
+
+     <div class="top-btn" id="topBtn" onclick="scrollTopPage()">
+          <i class="fas fa-arrow-up"></i>
+     </div>
+
+     <!-- ===== FOOTER ===== -->
+
+     <footer>
+          <p>© 2026 The Youth Contest Beyond Vision | Developed by Kevin The Cyber Coder</p>
+     </footer>
+
+     <script>
+
+          /* HAMBURGER */
+          function toggleMenu() {
+               document.getElementById("navLinks").classList.toggle("show");
+          }
+
+          /* DONATION AMOUNT */
+          function setAmount(value) {
+               document.getElementById("amount").value = value;
+          }
+
+          /* BACK TO TOP */
+          window.onscroll = function () {
+               document.getElementById("topBtn").style.display =
+                    window.scrollY > 300 ? "block" : "none";
+          };
+
+          function scrollTopPage() {
+               window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+
+     </script>
+
+</body>
+
+</html>

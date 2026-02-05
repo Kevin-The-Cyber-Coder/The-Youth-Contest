@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Our Projects | The Youth Contest Beyond Vision</title>
+
+     <!-- Google Font -->
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+     <!-- FontAwesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+     <style>
+          * {
+               margin: 0;
+               padding: 0;
+               box-sizing: border-box;
+               font-family: 'Poppins', sans-serif;
+          }
+
+          body {
+               background: #f8f9fb;
+               color: #333;
+               scroll-behavior: smooth;
+          }
+
+          /* ================= NAV ================= */
+
+          nav {
+               background: #111;
+               color: #fff;
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+               padding: 15px 40px;
+               position: sticky;
+               top: 0;
+               z-index: 1000;
+          }
+
+          .logo {
+               font-weight: 700;
+               font-size: 20px;
+          }
+
+          .nav-links {
+               display: flex;
+               gap: 30px;
+          }
+
+          .nav-links a {
+               color: white;
+               text-decoration: none;
+               transition: .3s;
+          }
+
+          .nav-links a:hover {
+               color: gold;
+          }
+
+          .hamburger {
+               display: none;
+               font-size: 22px;
+               cursor: pointer;
+          }
+
+          /* ================= HERO ================= */
+
+          .hero {
+               height: 55vh;
+               background:
+                    linear-gradient(rgba(0, 0, 0, .65), rgba(0, 0, 0, .65)),
+                    url("https://images.unsplash.com/photo-1529070538774-1843cb3265df");
+               background-size: cover;
+               background-position: center;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               text-align: center;
+               color: white;
+          }
+
+          .hero h1 {
+               font-size: 48px;
+          }
+
+          /* ================= SECTIONS ================= */
+
+          section {
+               padding: 80px 10%;
+          }
+
+          .section-title {
+               text-align: center;
+               margin-bottom: 50px;
+          }
+
+          .section-title h2 {
+               font-size: 34px;
+               margin-bottom: 10px;
+          }
+
+          .section-title p {
+               max-width: 700px;
+               margin: auto;
+          }
+
+          /* ================= PROJECT CARDS ================= */
+
+          .project-grid {
+               display: grid;
+               grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+               gap: 35px;
+          }
+
+          .project-card {
+               background: white;
+               border-radius: 15px;
+               overflow: hidden;
+               box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
+               transition: .4s;
+          }
+
+          .project-card:hover {
+               transform: translateY(-12px);
+          }
+
+          .project-card img {
+               width: 100%;
+               height: 220px;
+               object-fit: cover;
+          }
+
+          .project-content {
+               padding: 25px;
+          }
+
+          .project-content i {
+               font-size: 38px;
+               color: gold;
+               margin-bottom: 15px;
+          }
+
+          .project-content h3 {
+               margin-bottom: 10px;
+          }
+
+          .project-content p {
+               font-size: 15px;
+               line-height: 1.6;
+          }
+
+          /* ================= MEDIA SECTION ================= */
+
+          .media-grid {
+               display: grid;
+               grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+               gap: 25px;
+          }
+
+          .media-grid img,
+          .media-grid video {
+               width: 100%;
+               border-radius: 12px;
+               box-shadow: 0 6px 20px rgba(0, 0, 0, .15);
+               transition: .4s;
+          }
+
+          .media-grid img:hover,
+          .media-grid video:hover {
+               transform: scale(1.05);
+          }
+
+          /* ================= CTA ================= */
+
+          .cta {
+               background: #111;
+               color: white;
+               text-align: center;
+               padding: 80px 10%;
+          }
+
+          .cta h2 {
+               margin-bottom: 20px;
+          }
+
+          .cta button {
+               background: gold;
+               border: none;
+               padding: 14px 28px;
+               margin: 10px;
+               font-weight: 600;
+               cursor: pointer;
+               transition: .3s;
+          }
+
+          .cta button:hover {
+               transform: scale(1.1);
+          }
+
+          /* ================= FLOATING ================= */
+
+          .whatsapp {
+               position: fixed;
+               bottom: 20px;
+               left: 20px;
+               background: #25d366;
+               color: white;
+               padding: 15px;
+               border-radius: 50%;
+               font-size: 22px;
+               z-index: 1000;
+          }
+
+          .top-btn {
+               position: fixed;
+               bottom: 20px;
+               right: 20px;
+               background: gold;
+               padding: 12px 16px;
+               cursor: pointer;
+               display: none;
+               z-index: 1000;
+          }
+
+          /* ================= FOOTER ================= */
+
+          footer {
+               background: #111;
+               color: white;
+               text-align: center;
+               padding: 30px 10%;
+          }
+
+          /* ================= MOBILE ================= */
+
+          @media(max-width:768px) {
+
+               .nav-links {
+                    display: none;
+                    flex-direction: column;
+                    background: #111;
+                    position: absolute;
+                    top: 60px;
+                    right: 0;
+                    width: 220px;
+                    padding: 20px;
+               }
+
+               .nav-links.show {
+                    display: flex;
+               }
+
+               .hamburger {
+                    display: block;
+               }
+
+               .hero h1 {
+                    font-size: 32px;
+               }
+
+          }
+     </style>
+</head>
+
+<body>
+
+     <!-- ================= NAV ================= -->
+
+     <nav>
+          <div class="logo">Youth Contest Beyond Vision</div>
+
+          <div class="nav-links" id="navLinks">
+               <a href="index.html">Home</a>
+               <a href="about.html">About</a>
+               <a href="#">Projects</a>
+               <a href="contact.html">Contact</a>
+               <a href="#" style="color:gold;">Donate</a>
+          </div>
+
+          <div class="hamburger" onclick="toggleMenu()">
+               <i class="fas fa-bars"></i>
+          </div>
+     </nav>
+
+     <!-- ================= HERO ================= -->
+
+     <section class="hero">
+          <h1>Our Projects</h1>
+     </section>
+
+     <!-- ================= PROJECTS ================= -->
+
+     <section>
+          <div class="section-title">
+               <h2>Core Youth Empowerment Projects</h2>
+               <p>
+                    Our projects are designed to strengthen debate culture, public speaking,
+                    leadership development and peaceful civic engagement among secondary school students in Rwanda.
+               </p>
+          </div>
+
+          <div class="project-grid">
+
+               <!-- PROJECT 1 -->
+               <div class="project-card">
+                    <img src="https://picsum.photos/600/400?1">
+                    <div class="project-content">
+                         <i class="fas fa-comments"></i>
+                         <h3>Student Debate Training Project</h3>
+                         <p>
+                              This project equips secondary school students with debate fundamentals,
+                              critical thinking skills, structured argumentation, research techniques,
+                              and ethical public discourse. Training sessions are conducted directly in schools,
+                              ensuring accessibility and inclusivity.
+                         </p>
+                    </div>
+               </div>
+
+               <!-- PROJECT 2 -->
+               <div class="project-card">
+                    <img src="https://picsum.photos/600/400?2">
+                    <div class="project-content">
+                         <i class="fas fa-bullhorn"></i>
+                         <h3>Public Speaking & Communication Project</h3>
+                         <p>
+                              Focused on confidence-building and effective expression, this project empowers students
+                              to speak clearly, persuasively and responsibly in academic, civic and leadership spaces.
+                              It nurtures confident voices for positive change.
+                         </p>
+                    </div>
+               </div>
+
+               <!-- PROJECT 3 -->
+               <div class="project-card">
+                    <img src="https://picsum.photos/600/400?3">
+                    <div class="project-content">
+                         <i class="fas fa-trophy"></i>
+                         <h3>Debate League & Competitions Project</h3>
+                         <p>
+                              Through structured debate leagues and school competitions, students practice their skills
+                              in real environments, encouraging teamwork, leadership, discipline and intellectual
+                              confidence.
+                         </p>
+                    </div>
+               </div>
+
+               <!-- PROJECT 4 -->
+               <div class="project-card">
+                    <img src="https://picsum.photos/600/400?4">
+                    <div class="project-content">
+                         <i class="fas fa-chalkboard-teacher"></i>
+                         <h3>Teachers Debate Capacity Project</h3>
+                         <p>
+                              This project trains teachers as debate mentors, providing tools, methodologies and
+                              resources
+                              to guide students effectively and sustain debate culture within schools.
+                         </p>
+                    </div>
+               </div>
+
+               <!-- PROJECT 5 -->
+               <div class="project-card">
+                    <img src="https://picsum.photos/600/400?5">
+                    <div class="project-content">
+                         <i class="fas fa-handshake"></i>
+                         <h3>Youth Peace & Leadership Project</h3>
+                         <p>
+                              Using debate as a peacebuilding tool, this project promotes tolerance, respectful
+                              disagreement,
+                              ethical leadership and civic responsibility among young people.
+                         </p>
+                    </div>
+               </div>
+
+          </div>
+     </section>
+
+     <!-- ================= MEDIA ================= -->
+
+     <section>
+          <div class="section-title">
+               <h2>Programs Activities & Media</h2>
+               <p>Visual highlights from trainings, debates, workshops and school engagements.</p>
+          </div>
+
+          <div class="media-grid">
+               <img src="https://picsum.photos/500/350?6">
+               <img src="https://picsum.photos/500/350?7">
+               <video controls>
+                    <source src="sample-video.mp4" type="video/mp4">
+               </video>
+               <img src="https://picsum.photos/500/350?8">
+          </div>
+     </section>
+
+     <!-- ================= CTA ================= -->
+
+     <section class="cta">
+          <h2>Support Our Youth Projects</h2>
+          <p>Join us in empowering the next generation through debate and leadership.</p>
+
+          <button><i class="fas fa-hands-helping"></i> Volunteer</button>
+          <button><i class="fas fa-donate"></i> Donate</button>
+          <button><i class="fas fa-handshake"></i> Partner</button>
+     </section>
+
+     <!-- ================= FLOATING ================= -->
+
+     <a href="https://wa.me/250790002626" class="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+     </a>
+
+     <div class="top-btn" id="topBtn" onclick="scrollTopPage()">
+          <i class="fas fa-arrow-up"></i>
+     </div>
+
+     <!-- ================= FOOTER ================= -->
+
+     <footer>
+          <p>© 2026 The Youth Contest Beyond Vision | Developed by Mukeshimana Kevin</p>
+     </footer>
+
+     <script>
+
+          /* HAMBURGER */
+          function toggleMenu() {
+               document.getElementById("navLinks").classList.toggle("show");
+          }
+
+          /* BACK TO TOP */
+          window.onscroll = function () {
+               document.getElementById("topBtn").style.display =
+                    window.scrollY > 300 ? "block" : "none";
+          };
+
+          function scrollTopPage() {
+               window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+
+     </script>
+
+</body>
+
+</html>
