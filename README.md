@@ -78,7 +78,7 @@ Focused on national youth development and education.
 
 ## 📬 Contact Information
 - **Email:** theyouthcontest@gmail.com  
-- **Phone:** (+250) 79000 2626  
+- **Phone:** (+250) 7968 70533 
 
 ---
 
