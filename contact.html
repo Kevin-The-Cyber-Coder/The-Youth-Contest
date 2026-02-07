@@ -4,10 +4,11 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Contact Us | Youth Contest Beyond Vision</title>
+     <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
+     <title>Contact Us |The Youth Contest Beyond Vision</title>
 
      <!-- Google Font -->
-     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
      <!-- FontAwesome -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -23,378 +24,1023 @@
           body {
                background: #f8f9fb;
                color: #333;
+               line-height: 1.6;
           }
 
-          /* ===== NAV ===== */
-
+          /* ===== NAVIGATION ===== */
           nav {
-               background: #111;
-               color: white;
-               display: flex;
-               justify-content: space-between;
-               align-items: center;
-               padding: 15px 40px;
+               background: white;
+               box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
                position: sticky;
                top: 0;
                z-index: 1000;
           }
 
+          .nav-container {
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+               padding: 15px 5%;
+               max-width: 1400px;
+               margin: auto;
+          }
+
           .logo {
+               display: flex;
+               align-items: center;
+               gap: 15px;
+               text-decoration: none;
+          }
+
+          .logo img {
+               height: 70px;
+               border: 3px solid #f2b705;
+               border-radius: 50%;
+               object-fit: cover;
+          }
+
+          .logo h1 {
+               color: #1c3c6b;
+               font-size: 24px;
                font-weight: 700;
-               font-size: 20px;
           }
 
           .nav-links {
                display: flex;
-               gap: 30px;
+               list-style: none;
+               gap: 25px;
           }
 
           .nav-links a {
-               color: white;
+               color: #1c3c6b;
                text-decoration: none;
-               transition: .3s;
+               font-weight: 600;
+               font-size: 16px;
+               padding: 8px 0;
+               position: relative;
+               transition: 0.3s;
           }
 
-          .nav-links a:hover {
-               color: gold;
+          .nav-links a:hover,
+          .nav-links a.active {
+               color: #f2b705;
+          }
+
+          .nav-links a::after {
+               content: '';
+               position: absolute;
+               bottom: 0;
+               left: 0;
+               width: 0;
+               height: 2px;
+               background: #f2b705;
+               transition: 0.3s;
+          }
+
+          .nav-links a:hover::after {
+               width: 100%;
           }
 
           .hamburger {
                display: none;
-               font-size: 22px;
+               background: none;
+               border: none;
+               font-size: 28px;
+               color: #1c3c6b;
                cursor: pointer;
+               padding: 0;
+               z-index: 2000;
           }
 
-          /* ===== HERO ===== */
-
+          /* ===== HERO SECTION ===== */
           .hero {
-               height: 45vh;
-               background:
-                    linear-gradient(rgba(0, 0, 0, .65), rgba(0, 0, 0, .65)),
-                    url("https://images.unsplash.com/photo-1521791136064-7986c2920216");
-               background-size: cover;
-               background-position: center;
+               height: 60vh;
+               background: linear-gradient(rgba(28, 60, 107, 0.9), rgba(28, 60, 107, 0.95)), 
+                           url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1") center/cover no-repeat;
                display: flex;
                justify-content: center;
                align-items: center;
                color: white;
                text-align: center;
+               padding: 0 20px;
+          }
+
+          .hero-content {
+               max-width: 800px;
           }
 
           .hero h1 {
-               font-size: 45px;
+               font-size: 56px;
+               font-weight: 700;
+               margin-bottom: 20px;
+               text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
           }
 
-          /* ===== CONTACT SECTION ===== */
+          .hero p {
+               font-size: 20px;
+               opacity: 0.9;
+               line-height: 1.8;
+          }
 
+          /* ===== SECTION STYLES ===== */
           section {
-               padding: 80px 10%;
+               padding: 80px 5%;
+               max-width: 1400px;
+               margin: auto;
           }
 
+          .section-title {
+               text-align: center;
+               font-size: 42px;
+               color: #1c3c6b;
+               margin-bottom: 60px;
+               position: relative;
+               display: inline-block;
+               left: 50%;
+               transform: translateX(-50%);
+          }
+
+          .section-title::after {
+               content: '';
+               position: absolute;
+               bottom: -10px;
+               left: 50%;
+               transform: translateX(-50%);
+               width: 70px;
+               height: 4px;
+               background: #f2b705;
+               border-radius: 2px;
+          }
+
+          /* ===== CONTACT GRID ===== */
           .contact-grid {
                display: grid;
-               grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-               gap: 40px;
+               grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+               gap: 35px;
+               margin-bottom: 50px;
           }
-
-          /* CONTACT INFO */
 
           .contact-card {
                background: white;
-               padding: 30px;
+               padding: 35px 30px;
                border-radius: 15px;
-               box-shadow: 0 10px 25px rgba(0, 0, 0, .1);
-               transition: .4s;
+               box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+               transition: 0.4s ease;
+               text-align: center;
           }
 
           .contact-card:hover {
-               transform: translateY(-10px);
+               transform: translateY(-12px);
+               box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
           }
 
           .contact-card i {
-               font-size: 35px;
-               color: gold;
+               font-size: 45px;
+               color: #f2b705;
+               margin-bottom: 20px;
+               display: inline-block;
+          }
+
+          .contact-card h3 {
+               font-size: 22px;
+               color: #1c3c6b;
                margin-bottom: 15px;
           }
 
-          /* FORM */
+          .contact-card p {
+               color: #555;
+               line-height: 1.8;
+               margin-bottom: 8px;
+          }
+
+          /* ===== FORM SECTION ===== */
+          .form-section {
+               background: #f1f5f9;
+               padding: 80px 5%;
+          }
+
+          .form-container {
+               max-width: 800px;
+               margin: auto;
+          }
 
           .form-box {
                background: white;
-               padding: 35px;
+               padding: 45px;
                border-radius: 15px;
-               box-shadow: 0 10px 25px rgba(0, 0, 0, .1);
+               box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          }
+
+          .form-box h2 {
+               font-size: 36px;
+               color: #1c3c6b;
+               margin-bottom: 30px;
+               text-align: center;
+               position: relative;
+               padding-bottom: 15px;
+          }
+
+          .form-box h2::after {
+               content: '';
+               position: absolute;
+               bottom: 0;
+               left: 50%;
+               transform: translateX(-50%);
+               width: 60px;
+               height: 4px;
+               background: #f2b705;
+               border-radius: 2px;
           }
 
           .input-group {
                position: relative;
-               margin-bottom: 20px;
+               margin-bottom: 25px;
           }
 
           .input-group i {
                position: absolute;
                top: 50%;
-               left: 15px;
+               left: 20px;
                transform: translateY(-50%);
-               color: gold;
+               color: #f2b705;
+               font-size: 18px;
           }
 
           .input-group input,
           .input-group textarea {
                width: 100%;
-               padding: 12px 12px 12px 45px;
-               border: 1px solid #ccc;
-               border-radius: 8px;
+               padding: 16px 20px 16px 55px;
+               border: 2px solid #e2e8f0;
+               border-radius: 10px;
                outline: none;
+               font-size: 16px;
+               transition: 0.3s;
+               font-family: 'Poppins', sans-serif;
+          }
+
+          .input-group input:focus,
+          .input-group textarea:focus {
+               border-color: #f2b705;
+               box-shadow: 0 0 0 3px rgba(242, 183, 5, 0.1);
           }
 
           textarea {
-               resize: none;
-               height: 120px;
+               resize: vertical;
+               min-height: 150px;
+               max-height: 300px;
           }
 
           .form-box button {
                width: 100%;
-               padding: 13px;
+               padding: 16px;
                border: none;
-               background: gold;
-               font-weight: 600;
+               background: #f2b705;
+               color: #1c3c6b;
+               font-weight: 700;
+               font-size: 18px;
                cursor: pointer;
-               transition: .3s;
+               transition: 0.3s;
+               border-radius: 10px;
+               box-shadow: 0 4px 15px rgba(242, 183, 5, 0.3);
           }
 
           .form-box button:hover {
-               transform: scale(1.05);
+               background: #e6a800;
+               transform: translateY(-3px);
+               box-shadow: 0 6px 20px rgba(242, 183, 5, 0.4);
           }
 
-          /* ===== MAP ===== */
+          /* ===== MAP SECTION ===== */
+          .map-section {
+               padding: 60px 5%;
+          }
 
-          .map {
-               margin-top: 60px;
+          .map-container {
                border-radius: 15px;
                overflow: hidden;
-               box-shadow: 0 10px 25px rgba(0, 0, 0, .2);
+               box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+               height: 450px;
+               width: 100%;
+               border: 5px solid white;
           }
 
-          /* ===== FLOAT BUTTONS ===== */
+          .map-container iframe {
+               width: 100%;
+               height: 100%;
+               border: none;
+          }
 
-          .whatsapp {
+          /* ===== FLOATING BUTTONS ===== */
+          .whatsapp-float {
                position: fixed;
-               bottom: 20px;
-               left: 20px;
+               bottom: 90px;
+               right: 30px;
                background: #25d366;
                color: white;
-               padding: 15px;
+               width: 60px;
+               height: 60px;
                border-radius: 50%;
-               font-size: 22px;
-               z-index: 1000;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               font-size: 28px;
+               text-decoration: none;
+               box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+               z-index: 999;
+               transition: 0.3s;
+          }
+
+          .whatsapp-float:hover {
+               transform: scale(1.1) rotate(10deg);
+               box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
           }
 
           .top-btn {
                position: fixed;
-               bottom: 20px;
-               right: 20px;
-               background: gold;
-               padding: 12px 16px;
+               bottom: 30px;
+               right: 30px;
+               background: #f2b705;
+               color: #1c3c6b;
+               width: 55px;
+               height: 55px;
+               border-radius: 50%;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               font-size: 24px;
                cursor: pointer;
-               display: none;
-               z-index: 1000;
+               box-shadow: 0 4px 15px rgba(242, 183, 5, 0.4);
+               z-index: 999;
+               opacity: 0;
+               visibility: hidden;
+               transition: 0.3s;
+          }
+
+          .top-btn.show {
+               opacity: 1;
+               visibility: visible;
+          }
+
+          .top-btn:hover {
+               transform: scale(1.1) translateY(-3px);
+               box-shadow: 0 6px 20px rgba(242, 183, 5, 0.5);
           }
 
           /* ===== FOOTER ===== */
-
           footer {
-               background: #111;
+               background: #1c3c6b;
                color: white;
-               padding: 40px 10%;
-               text-align: center;
+               padding: 70px 5% 30px;
+               margin-top: 80px;
           }
 
-          .socials {
-               margin-top: 15px;
+          .footer-grid {
+               display: grid;
+               grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+               gap: 40px;
+               margin-bottom: 50px;
           }
 
-          .socials a {
+          .footer-col h3 {
+               color: #f2b705;
+               font-size: 22px;
+               margin-bottom: 25px;
+               position: relative;
+               padding-bottom: 10px;
+          }
+
+          .footer-col h3::after {
+               content: '';
+               position: absolute;
+               bottom: 0;
+               left: 0;
+               width: 40px;
+               height: 3px;
+               background: #f2b705;
+               border-radius: 2px;
+          }
+
+          .footer-col p {
+               margin: 15px 0;
+               opacity: 0.85;
+               line-height: 1.7;
+          }
+
+          .footer-links {
+               list-style: none;
+               margin-top: 20px;
+          }
+
+          .footer-links li {
+               margin-bottom: 12px;
+          }
+
+          .footer-links a {
                color: white;
-               margin: 0 10px;
+               text-decoration: none;
+               transition: 0.3s;
+               opacity: 0.85;
+               display: block;
+               padding: 5px 0;
+          }
+
+          .footer-links a:hover {
+               color: #f2b705;
+               opacity: 1;
+               transform: translateX(5px);
+          }
+
+          .contact-item {
+               display: flex;
+               align-items: flex-start;
+               gap: 12px;
+               margin: 15px 0;
+               opacity: 0.85;
+          }
+
+          .contact-item i {
+               color: #f2b705;
                font-size: 20px;
-               transition: .3s;
+               margin-top: 3px;
           }
 
-          .socials a:hover {
-               color: gold;
+          .newsletter {
+               display: flex;
+               margin-top: 20px;
           }
 
-          /* ===== MOBILE ===== */
+          .newsletter input {
+               flex: 1;
+               padding: 14px 15px;
+               border: none;
+               border-radius: 50px 0 0 50px;
+               font-family: 'Poppins', sans-serif;
+          }
 
-          @media(max-width:768px) {
+          .newsletter button {
+               background: #f2b705;
+               border: none;
+               color: #1c3c6b;
+               padding: 0 25px;
+               border-radius: 0 50px 50px 0;
+               cursor: pointer;
+               font-weight: 600;
+               transition: 0.3s;
+          }
 
-               .nav-links {
-                    display: none;
-                    flex-direction: column;
-                    background: #111;
-                    position: absolute;
-                    top: 60px;
-                    right: 0;
-                    width: 220px;
-                    padding: 20px;
+          .newsletter button:hover {
+               background: #e6a800;
+          }
+
+          /* SOCIAL MEDIA */
+          .footer-bottom {
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               gap: 25px;
+               padding-top: 30px;
+               border-top: 1px solid rgba(255, 255, 255, 0.15);
+          }
+
+          .social-icons {
+               display: flex;
+               gap: 20px;
+               justify-content: center;
+          }
+
+          .social-icons a {
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               width: 50px;
+               height: 50px;
+               background: rgba(255, 255, 255, 0.1);
+               border-radius: 50%;
+               color: white;
+               font-size: 20px;
+               transition: 0.3s;
+               text-decoration: none;
+          }
+
+          .social-icons a:hover {
+               background: #f2b705;
+               color: #1c3c6b;
+               transform: translateY(-3px);
+               box-shadow: 0 5px 15px rgba(242, 183, 5, 0.4);
+          }
+
+          .copyright {
+               text-align: center;
+               color: rgba(255, 255, 255, 0.7);
+               font-size: 15px;
+               margin: 0;
+               padding: 10px 0;
+               width: 100%;
+          }
+
+          .copyright a {
+               color: #f2b705;
+               font-weight: 600;
+               text-decoration: none;
+               transition: 0.3s;
+          }
+
+          .copyright a:hover {
+               text-decoration: underline;
+          }
+
+          /* ===== RESPONSIVE DESIGN ===== */
+          @media (max-width: 992px) {
+               .hero h1 {
+                    font-size: 48px;
                }
-
-               .nav-links.show {
-                    display: flex;
+               
+               .hero p {
+                    font-size: 18px;
                }
+               
+               section {
+                    padding: 70px 4%;
+               }
+          }
 
+          @media (max-width: 768px) {
                .hamburger {
                     display: block;
                }
+               
+               .nav-links {
+                    position: fixed;
+                    top: 80px;
+                    right: -100%;
+                    flex-direction: column;
+                    background: white;
+                    width: 85%;
+                    height: calc(100vh - 80px);
+                    padding: 40px 30px;
+                    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                    transition: 0.4s ease;
+                    z-index: 999;
+                    gap: 25px;
+               }
+               
+               .nav-links.active {
+                    right: 0;
+               }
+               
+               .hero {
+                    height: 50vh;
+               }
+               
+               .hero h1 {
+                    font-size: 38px;
+               }
+               
+               .hero p {
+                    font-size: 16px;
+               }
+               
+               .section-title {
+                    font-size: 32px;
+               }
+               
+               .form-box {
+                    padding: 35px 25px;
+               }
+               
+               .form-box h2 {
+                    font-size: 30px;
+               }
+               
+               .input-group input,
+               .input-group textarea {
+                    padding: 14px 20px 14px 50px;
+                    font-size: 15px;
+               }
+               
+               .map-container {
+                    height: 350px;
+               }
+               
+               .footer-grid {
+                    grid-template-columns: 1fr;
+                    text-align: center;
+               }
+               
+               .newsletter {
+                    flex-direction: column;
+                    gap: 10px;
+               }
+               
+               .newsletter input,
+               .newsletter button {
+                    width: 100%;
+                    border-radius: 50px;
+               }
+               
+               .contact-item {
+                    justify-content: center;
+                    text-align: center;
+               }
+          }
 
+          @media (max-width: 480px) {
+               .nav-container {
+                    padding: 12px 4%;
+               }
+               
+               .logo h1 {
+                    font-size: 20px;
+               }
+               
+               .logo img {
+                    height: 60px;
+               }
+               
+               .hero {
+                    height: 40vh;
+                    padding: 0 15px;
+               }
+               
                .hero h1 {
                     font-size: 32px;
                }
-
+               
+               .hero p {
+                    font-size: 15px;
+               }
+               
+               .section-title {
+                    font-size: 28px;
+               }
+               
+               section {
+                    padding: 60px 3%;
+               }
+               
+               .contact-card {
+                    padding: 30px 20px;
+               }
+               
+               .contact-card i {
+                    font-size: 40px;
+               }
+               
+               .contact-card h3 {
+                    font-size: 20px;
+               }
+               
+               .form-box {
+                    padding: 30px 20px;
+               }
+               
+               .form-box h2 {
+                    font-size: 26px;
+               }
+               
+               .input-group i {
+                    font-size: 16px;
+               }
+               
+               .input-group input,
+               .input-group textarea {
+                    padding: 12px 15px 12px 45px;
+                    font-size: 14px;
+               }
+               
+               .form-box button {
+                    padding: 14px;
+                    font-size: 16px;
+               }
+               
+               .map-container {
+                    height: 300px;
+               }
+               
+               .social-icons a {
+                    width: 45px;
+                    height: 45px;
+                    font-size: 18px;
+               }
+               
+               .whatsapp-float,
+               .top-btn {
+                    right: 20px;
+               }
           }
      </style>
 </head>
 
 <body>
 
-     <!-- ===== NAV ===== -->
-
+     <!-- ===== NAVIGATION ===== -->
      <nav>
-          <div class="logo">Youth Contest Beyond Vision</div>
-
-          <div class="nav-links" id="navLinks">
-               <a href="index.html">Home</a>
-               <a href="about.html">About</a>
-               <a href="programs.html">Projects</a>
-               <a href="#">Contact</a>
-               <a href="#" style="color:gold;">Donate</a>
-          </div>
-
-          <div class="hamburger" onclick="toggleMenu()">
-               <i class="fas fa-bars"></i>
+          <div class="nav-container">
+               <a href="index.html" class="logo">
+                    <img src="logo.png" alt="Logo">
+                    <h1>The Youth Contest Beyond Vision</h1>
+               </a>
+               
+               <button class="hamburger" onclick="toggleMenu()">
+                    <i class="fas fa-bars" id="menuIcon"></i>
+               </button>
+               
+               <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                    <li><a href="getinvolved.html">Get Involved</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+               </ul>
           </div>
      </nav>
 
-     <!-- ===== HERO ===== -->
-
+     <!-- ===== HERO SECTION ===== -->
      <section class="hero">
-          <h1>Contact Us</h1>
+          <div class="hero-content">
+               <h1>Contact Us</h1>
+               <p>Have questions or want to learn more about our work? Reach out to us and we'll be happy to assist you.</p>
+          </div>
      </section>
 
-     <!-- ===== CONTACT INFO + FORM ===== -->
-
+     <!-- ===== CONTACT INFO ===== -->
      <section>
+          <h2 class="section-title">Get In Touch</h2>
 
           <div class="contact-grid">
-
-               <!-- CONTACT DETAILS -->
-
+               <!-- EMAIL -->
                <div class="contact-card">
                     <i class="fas fa-envelope"></i>
                     <h3>Email Address</h3>
                     <p>theyouthcontest@gmail.com</p>
+                    <p style="margin-top: 10px; font-size: 14px; opacity: 0.8;">We respond within 24 hours</p>
                </div>
 
+               <!-- PHONE -->
                <div class="contact-card">
                     <i class="fas fa-phone"></i>
-                    <h3>Phone Number</h3>
-                    <p>(+250) 79000 2626</p>
+                    <h3>Phone Numbers</h3>
+                    <p><i class="fas fa-mobile-alt" style="margin-right: 8px;"></i> MTN: +250 796 870 553</p>
+                    <p><i class="fas fa-mobile-alt" style="margin-right: 8px;"></i> Airtel: +250 737 295 774</p>
                </div>
 
+               <!-- LOCATION -->
                <div class="contact-card">
-                    <i class="fas fa-location-dot"></i>
+                    <i class="fas fa-map-marker-alt"></i>
                     <h3>Office Location</h3>
                     <p>Kigali, Rwanda</p>
+                    <p>Kicukiro, Nyarugunga</p>
+                    <p style="margin-top: 10px; font-size: 14px; opacity: 0.8;">Visit us during office hours</p>
                </div>
 
+               <!-- SOCIAL MEDIA -->
+               <div class="contact-card">
+                    <i class="fas fa-share-alt"></i>
+                    <h3>Follow Us</h3>
+                    <p><i class="fab fa-facebook" style="margin-right: 8px;"></i> The Youth Contest</p>
+                    <p><i class="fab fa-instagram" style="margin-right: 8px;"></i> theyouthcontest</p>
+                    <p><i class="fas fa-comments style="margin-right: 8px;"></i> TYC Beyond Vision</p>
+               </div>
           </div>
-
-          <br><br>
-
-          <!-- CONTACT FORM -->
-
-          <div class="form-box">
-               <h2 style="margin-bottom:20px;">Send Us Message</h2>
-
-               <form>
-
-                    <div class="input-group">
-                         <i class="fas fa-user"></i>
-                         <input type="text" placeholder="Full Name" required>
-                    </div>
-
-                    <div class="input-group">
-                         <i class="fas fa-envelope"></i>
-                         <input type="email" placeholder="Email Address" required>
-                    </div>
-
-                    <div class="input-group">
-                         <i class="fas fa-message"></i>
-                         <textarea placeholder="Write your message..." required></textarea>
-                    </div>
-
-                    <button type="submit">
-                         <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
-
-               </form>
-          </div>
-
      </section>
 
-     <!-- ===== MAP ===== -->
+     <!-- ===== CONTACT FORM ===== -->
+     <section class="form-section">
+          <div class="form-container">
+               <div class="form-box">
+                    <h2>Send Us a Message</h2>
+                    
+                    <form id="contactForm" onsubmit="handleSubmit(event)">
+                         <div class="input-group">
+                              <i class="fas fa-user"></i>
+                              <input type="text" id="name" placeholder="Full Name" required>
+                         </div>
 
-     <section class="map">
+                         <div class="input-group">
+                              <i class="fas fa-envelope"></i>
+                              <input type="email" id="email" placeholder="Email Address" required>
+                         </div>
 
-          <iframe src="https://www.google.com/maps?q=Kigali,Rwanda&output=embed" width="100%" height="400"
-               style="border:0;" allowfullscreen="" loading="lazy">
-          </iframe>
+                         <div class="input-group">
+                              <i class="fas fa-phone"></i>
+                              <input type="tel" id="phone" placeholder="Phone Number (Optional)">
+                         </div>
 
+                         <div class="input-group">
+                              <i class="fas fa-comment"></i>
+                              <textarea id="message" placeholder="Write your message..." required></textarea>
+                         </div>
+
+                         <button type="submit">
+                              <i class="fas fa-paper-plane"></i> Send Message
+                         </button>
+                    </form>
+               </div>
+          </div>
+     </section>
+
+     <!-- ===== MAP SECTION ===== -->
+     <section class="map-section">
+          <h2 class="section-title">Our Location</h2>
+          <div class="map-container">
+               <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.783468785416!2d30.08405477491229!3d-1.9499483980683665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca5c4c3c3c3c3%3A0x19dca5c4c3c3c3c3!2sKigali%2C%20Rwanda!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+               </iframe>
+          </div>
      </section>
 
      <!-- ===== FLOATING BUTTONS ===== -->
-
-     <a href="https://wa.me/250790002626" class="whatsapp">
+     <a href="https://wa.me/250796870553" class="whatsapp-float" target="_blank">
           <i class="fab fa-whatsapp"></i>
      </a>
 
-     <div class="top-btn" id="topBtn" onclick="scrollTopPage()">
+     <div class="top-btn" id="backToTop" onclick="scrollTopPage()">
           <i class="fas fa-arrow-up"></i>
      </div>
 
      <!-- ===== FOOTER ===== -->
-
      <footer>
-
-          <p>© 2026 The Youth Contest Beyond Vision</p>
-
-          <div class="socials">
-               <a href="#"><i class="fab fa-facebook"></i></a>
-               <a href="#"><i class="fab fa-instagram"></i></a>
-               <a href="#"><i class="fab fa-youtube"></i></a>
-               <a href="#"><i class="fab fa-twitter"></i></a>
+          <div class="footer-grid">
+               <div class="footer-col">
+                    <h3>The Youth Contest Beyond Vision</h3>
+                    <p>
+                         Empowering youth through communication, leadership, debate and public speaking skills to build a better future for Rwanda.
+                    </p>
+                    <div class="contact-item">
+                         <i class="fas fa-map-marker-alt"></i>
+                         <span>Kigali, Rwanda</span>
+                    </div>
+                    <div class="contact-item">
+                         <i class="fas fa-phone"></i>
+                         <span>+250 796 870 553</span>
+                    </div>
+                    <div class="contact-item">
+                         <i class="fas fa-envelope"></i>
+                         <span>theyouthcontest@gmail.com</span>
+                    </div>
+               </div>
+               
+               <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                         <li><a href="about.html">About Us</a></li>
+                         <li><a href="programs.html">Our Programs</a></li>
+                         <li><a href="contact.html">Contact Us</a></li>
+                         <li><a href="donate.html">Donate</a></li>
+                         <li><a href="getinvolved.html">Get Involved</a></li>
+                    </ul>
+               </div>
+               
+               <div class="footer-col">
+                    <h3>Our Programs</h3>
+                    <ul class="footer-links">
+                         <li><a href="programs.html#debate">Debate Training</a></li>
+                         <li><a href="programs.html#public-speaking">Public Speaking</a></li>
+                         <li><a href="programs.html#leadership">Leadership Camps</a></li>
+                         <li><a href="programs.html#peacebuilding">Peacebuilding</a></li>
+                         <li><a href="programs.html#competitions">Competitions</a></li>
+                    </ul>
+               </div>
+               
+               <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get updates on our programs and events</p>
+                    <div class="newsletter">
+                         <input type="email" placeholder="Enter your email">
+                         <button><i class="fas fa-paper-plane"></i></button>
+                    </div>
+               </div>
           </div>
-
+          
+          <div class="footer-bottom">
+               <div class="social-icons">
+                    <a href="#" target="_blank" title="Facebook">
+                         <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" target="_blank" title="Instagram">
+                         <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" target="_blank" title="YouTube">
+                         <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" target="_blank" title="Twitter">
+                         <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://wa.me/250796870553" target="_blank" title="WhatsApp">
+                         <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" target="_blank" title="LinkedIn">
+                         <i class="fab fa-linkedin-in"></i>
+                    </a>
+               </div>
+               
+               <div class="copyright">
+                    © 2026 The Youth Contest Beyond Vision. All Rights Reserved. Developed by <a href="https://linkedin.com/in/kevin-the-cyber-coder-8443503aa" target="_blank">MUKESHIMANA KEVIN</a>
+               </div>
+          </div>
      </footer>
 
      <script>
-
-          /* HAMBURGER */
+          // ===== MOBILE MENU =====
           function toggleMenu() {
-               document.getElementById("navLinks").classList.toggle("show");
+               const navLinks = document.getElementById('navLinks');
+               const menuIcon = document.getElementById('menuIcon');
+               
+               navLinks.classList.toggle('active');
+               
+               if (navLinks.classList.contains('active')) {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-times');
+               } else {
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+               }
+          }
+          
+          // Close menu when clicking a link
+          document.querySelectorAll('.nav-links a').forEach(link => {
+               link.addEventListener('click', () => {
+                    const navLinks = document.getElementById('navLinks');
+                    const menuIcon = document.getElementById('menuIcon');
+                    
+                    if (navLinks.classList.contains('active')) {
+                         navLinks.classList.remove('active');
+                         menuIcon.classList.remove('fa-times');
+                         menuIcon.classList.add('fa-bars');
+                    }
+               });
+          });
+          
+          // Close menu when clicking outside
+          document.addEventListener('click', function(event) {
+               const navLinks = document.getElementById('navLinks');
+               const menuToggle = document.querySelector('.hamburger');
+               
+               if (navLinks.classList.contains('active')) {
+                    const isClickInsideNav = navLinks.contains(event.target);
+                    const isClickOnMenuToggle = menuToggle.contains(event.target);
+                    
+                    if (!isClickInsideNav && !isClickOnMenuToggle) {
+                         navLinks.classList.remove('active');
+                         document.getElementById('menuIcon').classList.remove('fa-times');
+                         document.getElementById('menuIcon').classList.add('fa-bars');
+                    }
+               }
+          });
+
+          // ===== FORM SUBMISSION =====
+          function handleSubmit(event) {
+               event.preventDefault();
+               
+               const name = document.getElementById('name').value;
+               const email = document.getElementById('email').value;
+               const message = document.getElementById('message').value;
+               
+               // Simple validation
+               if (name.length < 2) {
+                    alert('Please enter a valid name');
+                    return;
+               }
+               
+               if (!email.includes('@')) {
+                    alert('Please enter a valid email address');
+                    return;
+               }
+               
+               if (message.length < 10) {
+                    alert('Please write a more detailed message');
+                    return;
+               }
+               
+               // Show success message
+               alert('Thank you for your message! We will get back to you soon.');
+               
+               // Reset form
+               document.getElementById('contactForm').reset();
           }
 
-          /* BACK TO TOP */
-          window.onscroll = function () {
-               document.getElementById("topBtn").style.display =
-                    window.scrollY > 300 ? "block" : "none";
-          };
-
+          // ===== BACK TO TOP =====
+          window.addEventListener('scroll', function() {
+               const backToTop = document.getElementById('backToTop');
+               if (window.scrollY > 300) {
+                    backToTop.classList.add('show');
+               } else {
+                    backToTop.classList.remove('show');
+               }
+          });
+          
           function scrollTopPage() {
-               window.scrollTo({ top: 0, behavior: 'smooth' });
+               window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+               });
           }
-
      </script>
 
 </body>

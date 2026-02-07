@@ -4,9 +4,10 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
      <title>About | The Youth Contest Beyond Vision</title>
 
-     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
      <style>
@@ -14,549 +15,1430 @@
                margin: 0;
                padding: 0;
                box-sizing: border-box;
-               font-family: Poppins;
+               font-family: 'Poppins', sans-serif;
           }
 
           body {
                background: #f5f7fa;
+               color: #333;
+               line-height: 1.6;
           }
 
-          /* NAVIGATION */
-
+          /* ===== NAVIGATION ===== */
           nav {
-               background: #002366;
-               color: white;
-               padding: 15px 8%;
+               background: white;
+               box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+               position: sticky;
+               top: 0;
+               z-index: 1000;
+          }
+
+          .nav-container {
                display: flex;
                justify-content: space-between;
                align-items: center;
+               padding: 15px 5%;
+               max-width: 1400px;
+               margin: auto;
           }
 
-          nav ul {
+          .logo {
+               display: flex;
+               align-items: center;
+               gap: 15px;
+               text-decoration: none;
+          }
+
+          .logo img {
+               height: 70px;
+               border: 3px solid #FFD700;
+               border-radius: 50%;
+               object-fit: cover;
+          }
+
+          .logo h1 {
+               color: #002366;
+               font-size: 24px;
+               font-weight: 700;
+          }
+
+          .nav-links {
                display: flex;
                list-style: none;
-               gap: 25px;
+               gap: 30px;
           }
 
-          nav a {
-               color: white;
+          .nav-links a {
+               color: #002366;
                text-decoration: none;
-               transition: .3s;
+               font-weight: 600;
+               font-size: 16px;
+               padding: 8px 0;
+               position: relative;
+               transition: 0.3s;
           }
 
-          nav a:hover {
+          .nav-links a:hover {
                color: #FFD700;
           }
 
-          /* HAMBURGER */
+          .nav-links a::after {
+               content: '';
+               position: absolute;
+               bottom: 0;
+               left: 0;
+               width: 0;
+               height: 2px;
+               background: #FFD700;
+               transition: 0.3s;
+          }
+
+          .nav-links a:hover::after {
+               width: 100%;
+          }
 
           .hamburger {
                display: none;
-               font-size: 25px;
+               background: none;
+               border: none;
+               font-size: 28px;
+               color: #002366;
                cursor: pointer;
+               padding: 0;
+               z-index: 2000;
           }
 
-          @media(max-width:768px) {
-
-               nav ul {
-                    position: absolute;
-                    top: 70px;
-                    right: -100%;
-                    background: #002366;
-                    flex-direction: column;
-                    width: 200px;
-                    padding: 20px;
-                    transition: .4s;
-               }
-
-               nav ul.active {
-                    right: 0;
-               }
-
-               .hamburger {
-                    display: block;
-               }
-
-          }
-
-          /* HERO */
-
+          /* ===== HERO SECTION ===== */
           .hero {
-               background: linear-gradient(rgba(0, 35, 102, .8), rgba(0, 35, 102, .8)),
-                    url("prosper.jpg") center/cover;
+               background: linear-gradient(rgba(0, 35, 102, 0.85), rgba(0, 35, 102, 0.85)),
+                    url("prosper.jpg") center/cover no-repeat;
                color: white;
                text-align: center;
-               padding: 90px 20px;
+               padding: 120px 20px;
           }
 
-          /* SECTIONS */
+          .hero h1 {
+               font-size: 56px;
+               font-weight: 700;
+               margin-bottom: 20px;
+               text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+          }
 
+          .hero p {
+               font-size: 22px;
+               opacity: 0.9;
+          }
+
+          /* ===== SECTION STYLES ===== */
           .section {
-               padding: 70px 8%;
+               padding: 80px 5%;
+               max-width: 1400px;
+               margin: auto;
           }
 
           .section h2 {
                text-align: center;
-               margin-bottom: 40px;
-               color: #002366
+               font-size: 42px;
+               color: #002366;
+               margin-bottom: 60px;
+               position: relative;
+               display: inline-block;
+               left: 50%;
+               transform: translateX(-50%);
           }
 
-          /* GRID */
-
-          .grid {
-               display: grid;
-               grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-               gap: 30px;
+          .section h2::after {
+               content: '';
+               position: absolute;
+               bottom: -10px;
+               left: 50%;
+               transform: translateX(-50%);
+               width: 70px;
+               height: 4px;
+               background: #FFD700;
+               border-radius: 2px;
           }
 
-          /* CARD */
-
-          .card {
-               background: white;
-               padding: 25px;
-               border-radius: 10px;
-               box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-               transition: .3s;
-          }
-
-          .card:hover {
-               transform: translateY(-6px);
-          }
-
-          /* GOLD ICON */
-
-          .gold {
-               color: #FFD700;
-               margin-bottom: 10px;
-          }
-
-          /* MISSION */
-          /* ORGANIZATION BACKGROUND */
-
+          /* ===== BACKGROUND CONTAINER ===== */
           .background-container {
                display: grid;
                grid-template-columns: 1.2fr 1fr;
-               gap: 40px;
+               gap: 50px;
                align-items: center;
           }
 
           .background-text h3 {
                color: #002366;
-               margin-bottom: 15px;
+               margin-bottom: 20px;
+               font-size: 28px;
+               display: flex;
+               align-items: center;
+               gap: 10px;
           }
 
           .background-text p {
-               margin-bottom: 15px;
-               line-height: 1.7;
+               margin-bottom: 20px;
+               line-height: 1.8;
+               color: #555;
           }
 
           .background-image img {
                width: 100%;
-               border-radius: 12px;
-               box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-               transition: 0.3s;
+               border-radius: 15px;
+               box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+               transition: 0.4s;
+               object-fit: cover;
+               height: 450px;
           }
 
           .background-image img:hover {
-               transform: scale(1.03);
+               transform: scale(1.05);
+               box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
           }
 
-          /* MOBILE */
-
-          @media(max-width:768px) {
-               .background-container {
-                    grid-template-columns: 1fr;
-               }
-          }
-
+          /* ===== MISSION SECTION ===== */
           .mission {
                display: grid;
                grid-template-columns: 1fr 1fr;
-               gap: 40px;
+               gap: 50px;
                align-items: center;
           }
 
           .mission img {
                width: 100%;
-               border-radius: 10px;
+               border-radius: 15px;
+               box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+               transition: 0.4s;
+               height: 400px;
+               object-fit: cover;
           }
 
-          @media(max-width:768px) {
-               .mission {
-                    grid-template-columns: 1fr;
+          .mission img:hover {
+               transform: scale(1.03);
+          }
+
+          .mission-content {
+               display: flex;
+               flex-direction: column;
+               gap: 20px;
+          }
+
+          .mission-content i {
+               font-size: 42px;
+               color: #FFD700;
+          }
+
+          .mission-content p {
+               font-size: 18px;
+               line-height: 1.8;
+               color: #555;
+          }
+
+          /* ===== VISION CARD ===== */
+          .vision-card {
+               background: white;
+               padding: 40px;
+               border-radius: 15px;
+               box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+               max-width: 800px;
+               margin: auto;
+               text-align: center;
+               transition: 0.4s;
+          }
+
+          .vision-card:hover {
+               transform: translateY(-10px);
+               box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+          }
+
+          .vision-card i {
+               font-size: 48px;
+               color: #FFD700;
+               margin-bottom: 20px;
+          }
+
+          .vision-card p {
+               font-size: 19px;
+               line-height: 1.8;
+               color: #555;
+               margin-bottom: 20px;
+          }
+
+          /* ===== TEAM SECTION ===== */
+          .team-section {
+               padding: 80px 5%;
+               background: #f8f9fb;
+          }
+
+          .team-section .section-title {
+               text-align: center;
+               color: #002366;
+               font-size: 42px;
+               margin-bottom: 60px;
+               position: relative;
+               display: inline-block;
+               left: 50%;
+               transform: translateX(-50%);
+          }
+
+          .team-section .section-title::after {
+               content: '';
+               position: absolute;
+               bottom: -10px;
+               left: 50%;
+               transform: translateX(-50%);
+               width: 70px;
+               height: 4px;
+               background: #FFD700;
+               border-radius: 2px;
+          }
+
+          .team-grid {
+               display: grid;
+               grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+               gap: 30px;
+          }
+
+          .team-card {
+               background: white;
+               padding: 35px 25px;
+               border-radius: 15px;
+               text-align: center;
+               box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+               transition: 0.4s;
+               cursor: pointer;
+          }
+
+          .team-card:hover {
+               transform: translateY(-10px);
+               box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+          }
+
+          .team-card img {
+               width: 130px;
+               height: 130px;
+               border-radius: 50%;
+               object-fit: cover;
+               margin-bottom: 20px;
+               border: 4px solid #f1f5f9;
+               transition: 0.3s;
+          }
+
+          .team-card:hover img {
+               transform: scale(1.05);
+               border-color: #FFD700;
+          }
+
+          .team-card h3 {
+               font-size: 22px;
+               color: #002366;
+               margin: 10px 0 8px;
+          }
+
+          .team-card p {
+               color: #FFD700;
+               font-weight: 600;
+               font-size: 16px;
+               text-transform: uppercase;
+               letter-spacing: 1px;
+          }
+
+          /* ===== MODAL STYLES ===== */
+          .modal {
+               display: none;
+               position: fixed;
+               top: 0;
+               left: 0;
+               width: 100%;
+               height: 100%;
+               background-color: rgba(0, 0, 0, 0.85);
+               z-index: 2000;
+               justify-content: center;
+               align-items: center;
+          }
+
+          .modal.show {
+               display: flex;
+          }
+
+          .modal-content {
+               background: white;
+               border-radius: 20px;
+               width: 90%;
+               max-width: 600px;
+               max-height: 90vh;
+               overflow-y: auto;
+               box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+               position: relative;
+               animation: modalOpen 0.4s ease;
+          }
+
+          @keyframes modalOpen {
+               from {
+                    opacity: 0;
+                    transform: translateY(-50px);
+               }
+               to {
+                    opacity: 1;
+                    transform: translateY(0);
                }
           }
 
-          /* TEAM */
+          .close-btn {
+               position: absolute;
+               top: 20px;
+               right: 25px;
+               font-size: 32px;
+               color: #666;
+               cursor: pointer;
+               background: none;
+               border: none;
+               transition: 0.3s;
+          }
 
-          .team img {
+          .close-btn:hover {
+               color: #FFD700;
+               transform: rotate(90deg);
+          }
+
+          .modal-body {
+               padding: 50px 30px;
+               text-align: center;
+          }
+
+          .modal-body img {
+               width: 150px;
+               height: 150px;
+               border-radius: 50%;
+               object-fit: cover;
+               margin-bottom: 20px;
+               border: 5px solid #FFD700;
+          }
+
+          .modal-body h3 {
+               font-size: 28px;
+               color: #002366;
+               margin-bottom: 10px;
+          }
+
+          .modal-body .role {
+               color: #FFD700;
+               font-weight: 600;
+               font-size: 18px;
+               margin-bottom: 20px;
+               text-transform: uppercase;
+          }
+
+          .modal-body p {
+               color: #555;
+               line-height: 1.8;
+               margin-bottom: 20px;
+          }
+
+          /* ===== TESTIMONIAL SLIDER ===== */
+          .testimonial-slider {
+               padding: 80px 5%;
+               background: linear-gradient(135deg, #002366, #001a4d);
+               text-align: center;
+               position: relative;
+               overflow: hidden;
+          }
+
+          .testimonial-slider::before {
+               content: '';
+               position: absolute;
+               top: 0;
+               left: 0;
+               width: 100%;
+               height: 100%;
+               background: radial-gradient(circle, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
+               z-index: 0;
+          }
+
+          .slider-container {
+               position: relative;
+               z-index: 1;
+               max-width: 900px;
+               margin: auto;
+          }
+
+          .slider-viewport {
+               overflow: hidden;
+               border-radius: 20px;
+               margin-bottom: 40px;
+          }
+
+          .slider-track {
+               display: flex;
+               transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+          }
+
+          .slide {
+               min-width: 100%;
+               padding: 40px;
+               box-sizing: border-box;
+          }
+
+          .speech-bubble {
+               background: white;
+               padding: 40px;
+               border-radius: 20px;
+               position: relative;
+               box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+               margin-bottom: 30px;
+               font-size: 20px;
+               line-height: 1.8;
+               color: #333;
+          }
+
+          .speech-bubble::after {
+               content: '';
+               position: absolute;
+               bottom: -15px;
+               left: 50%;
+               transform: translateX(-50%);
+               border-width: 15px 15px 0;
+               border-style: solid;
+               border-color: #fff transparent transparent;
+          }
+
+          .client-meta {
+               text-align: center;
+          }
+
+          .small-thumb {
                width: 120px;
                height: 120px;
                border-radius: 50%;
+               object-fit: cover;
                margin-bottom: 15px;
-               transition: .3s;
+               border: 4px solid #FFD700;
+               box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
           }
 
-          .team img:hover {
-               transform: scale(1.1);
+          .client-meta h4 {
+               color:white;
+               font-size: 22px;
+               margin-bottom: 5px;
           }
 
-          /* TESTIMONIAL SLIDER */
-
-          .slider {
-               overflow: hidden;
-               position: relative;
+          .client-meta p {
+               color: #FFD700;
+               font-weight: 600;
+               font-size: 16px;
           }
 
-          .slide-track {
+          .slider-nav {
                display: flex;
-               transition: 0.7s;
+               justify-content: center;
+               gap: 15px;
+               margin-top: 30px;
           }
 
-          .testimonial {
-               min-width: 300px;
-               margin: 10px;
+          .slider-nav button {
+               cursor: pointer;
+               padding: 12px 30px;
+               background: #FFD700;
+               color: #002366;
+               border: none;
+               border-radius: 50px;
+               font-weight: 600;
+               font-size: 16px;
+               transition: 0.3s;
+               box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
           }
 
-          /* CTA */
+          .slider-nav button:hover {
+               background: #f1f0e6;
+               transform: translateY(-3px);
+               box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+          }
 
+          /* ===== CTA SECTION ===== */
           .cta {
-               background: #002366;
+               background: linear-gradient(135deg, #485774, #3a4a63);
                color: white;
                text-align: center;
-               padding: 60px 20px;
+               padding: 80px 20px;
+               margin: 80px 0;
+          }
+
+          .cta h2 {
+               font-size: 48px;
+               margin-bottom: 40px;
+               text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+          }
+
+          .cta-buttons {
+               display: flex;
+               justify-content: center;
+               gap: 20px;
+               flex-wrap: wrap;
           }
 
           .cta button {
                margin: 10px;
-               padding: 12px 25px;
+               padding: 16px 40px;
                border: none;
                background: #FFD700;
+               color: #002366;
                cursor: pointer;
-               font-weight: bold;
-               transition: .3s;
+               font-weight: 700;
+               font-size: 18px;
+               border-radius: 50px;
+               transition: 0.3s;
+               box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
           }
 
           .cta button:hover {
                background: white;
                color: #002366;
+               transform: translateY(-3px);
+               box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
           }
 
-          /* FOOTER */
-
+          /* ===== FOOTER ===== */
           footer {
-               background: #002366;
+               background: #1c3c6b;
                color: white;
-               padding: 50px 8%;
+               padding: 70px 5% 30px;
+               margin-top: 80px;
           }
 
           .footer-grid {
                display: grid;
                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-               gap: 25px;
+               gap: 40px;
+               margin-bottom: 50px;
           }
 
-          .footer-grid p:hover {
+          .footer-col h3 {
                color: #FFD700;
-               cursor: pointer;
+               font-size: 22px;
+               margin-bottom: 25px;
+               position: relative;
+               padding-bottom: 10px;
           }
 
-          .footer-bottom {
-               text-align: center;
+          .footer-col h3::after {
+               content: '';
+               position: absolute;
+               bottom: 0;
+               left: 0;
+               width: 40px;
+               height: 3px;
+               background: #FFD700;
+               border-radius: 2px;
+          }
+
+          .footer-col p {
+               margin: 15px 0;
+               opacity: 0.85;
+               line-height: 1.7;
+          }
+
+          .footer-links {
+               list-style: none;
                margin-top: 20px;
-               border-top: 1px solid #ccc;
-               padding-top: 10px;
           }
 
-          /* FLOATING BUTTONS */
+          .footer-links li {
+               margin-bottom: 12px;
+          }
 
-          .whatsapp {
+          .footer-links a {
+               color: white;
+               text-decoration: none;
+               transition: 0.3s;
+               opacity: 0.85;
+               display: block;
+               padding: 5px 0;
+          }
+
+          .footer-links a:hover {
+               color: #FFD700;
+               opacity: 1;
+               transform: translateX(5px);
+          }
+
+          .contact-item {
+               display: flex;
+               align-items: flex-start;
+               gap: 12px;
+               margin: 15px 0;
+               opacity: 0.85;
+          }
+
+          .contact-item i {
+               color: #FFD700;
+               font-size: 20px;
+               margin-top: 3px;
+          }
+
+          .newsletter {
+               display: flex;
+               margin-top: 20px;
+          }
+
+          .newsletter input {
+               flex: 1;
+               padding: 14px 15px;
+               border: none;
+               border-radius: 50px 0 0 50px;
+               font-family: 'Poppins', sans-serif;
+          }
+
+          .newsletter button {
+               background: #FFD700;
+               border: none;
+               color: #002366;
+               padding: 0 25px;
+               border-radius: 0 50px 50px 0;
+               cursor: pointer;
+               font-weight: 600;
+               transition: 0.3s;
+          }
+
+          .newsletter button:hover {
+               background: #e6c000;
+          }
+
+          /* SOCIAL MEDIA */
+          .footer-bottom {
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               gap: 25px;
+               padding-top: 30px;
+               border-top: 1px solid rgba(255, 255, 255, 0.15);
+          }
+
+          .social-icons {
+               display: flex;
+               gap: 20px;
+               justify-content: center;
+          }
+
+          .social-icons a {
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               width: 50px;
+               height: 50px;
+               background: rgba(255, 255, 255, 0.1);
+               border-radius: 50%;
+               color: white;
+               font-size: 20px;
+               transition: 0.3s;
+               text-decoration: none;
+          }
+
+          .social-icons a:hover {
+               background: #FFD700;
+               color: #002366;
+               transform: translateY(-3px);
+               box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+          }
+
+          .copyright {
+               text-align: center;
+               color: rgba(255, 255, 255, 0.7);
+               font-size: 15px;
+               margin: 0;
+               padding: 10px 0;
+               width: 100%;
+          }
+
+          .copyright a {
+               color: #FFD700;
+               font-weight: 600;
+               text-decoration: none;
+               transition: 0.3s;
+          }
+
+          .copyright a:hover {
+               text-decoration: underline;
+          }
+
+          /* ===== FLOATING BUTTONS ===== */
+          .whatsapp-float {
                position: fixed;
-               bottom: 80px;
-               right: 20px;
+               bottom: 90px;
+               right: 30px;
                background: #25D366;
                color: white;
-               padding: 15px;
+               width: 60px;
+               height: 60px;
                border-radius: 50%;
-               transition: .3s;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               font-size: 28px;
+               text-decoration: none;
+               box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+               z-index: 999;
+               transition: 0.3s;
           }
 
-          .whatsapp:hover {
-               transform: scale(1.1);
+          .whatsapp-float:hover {
+               transform: scale(1.1) rotate(10deg);
+               box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
           }
 
           .top-btn {
                position: fixed;
-               bottom: 20px;
-               right: 20px;
+               bottom: 30px;
+               right: 30px;
                background: #FFD700;
-               padding: 12px;
+               color: #002366;
+               width: 55px;
+               height: 55px;
                border-radius: 50%;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               font-size: 24px;
                cursor: pointer;
-               transition: .3s;
+               box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+               z-index: 999;
+               opacity: 0;
+               visibility: hidden;
+               transition: 0.3s;
+          }
+
+          .top-btn.show {
+               opacity: 1;
+               visibility: visible;
           }
 
           .top-btn:hover {
-               transform: scale(1.1);
+               transform: scale(1.1) translateY(-3px);
+               box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+          }
+
+          /* ===== RESPONSIVE DESIGN ===== */
+          @media (max-width: 992px) {
+               .hero h1 {
+                    font-size: 48px;
+               }
+               
+               .hero p {
+                    font-size: 20px;
+               }
+               
+               .section {
+                    padding: 70px 4%;
+               }
+          }
+
+          @media (max-width: 768px) {
+               .hamburger {
+                    display: block;
+               }
+               
+               .nav-links {
+                    position: fixed;
+                    top: 80px;
+                    right: -100%;
+                    flex-direction: column;
+                    background: white;
+                    width: 85%;
+                    height: calc(100vh - 80px);
+                    padding: 40px 30px;
+                    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                    transition: 0.4s ease;
+                    z-index: 999;
+                    gap: 25px;
+               }
+               
+               .nav-links.active {
+                    right: 0;
+               }
+               
+               .hero h1 {
+                    font-size: 38px;
+               }
+               
+               .hero p {
+                    font-size: 18px;
+               }
+               
+               .section h2 {
+                    font-size: 32px;
+               }
+               
+               .background-container,
+               .mission {
+                    grid-template-columns: 1fr;
+               }
+               
+               .background-image img,
+               .mission img {
+                    height: 350px;
+               }
+               
+               .cta h2 {
+                    font-size: 36px;
+               }
+               
+               .cta-buttons {
+                    flex-direction: column;
+                    align-items: center;
+               }
+               
+               .cta button {
+                    width: 100%;
+                    max-width: 300px;
+               }
+               
+               .footer-grid {
+                    grid-template-columns: 1fr;
+                    text-align: center;
+               }
+               
+               .newsletter {
+                    flex-direction: column;
+                    gap: 10px;
+               }
+               
+               .newsletter input,
+               .newsletter button {
+                    width: 100%;
+                    border-radius: 50px;
+               }
+               
+               .contact-item {
+                    justify-content: center;
+                    text-align: center;
+               }
+          }
+
+          @media (max-width: 480px) {
+               .nav-container {
+                    padding: 12px 4%;
+               }
+               
+               .logo h1 {
+                    font-size: 20px;
+               }
+               
+               .logo img {
+                    height: 60px;
+               }
+               
+               .hero {
+                    padding: 90px 15px;
+               }
+               
+               .hero h1 {
+                    font-size: 32px;
+               }
+               
+               .hero p {
+                    font-size: 16px;
+               }
+               
+               .section h2 {
+                    font-size: 28px;
+               }
+               
+               .section {
+                    padding: 60px 3%;
+               }
+               
+               .background-image img,
+               .mission img {
+                    height: 300px;
+               }
+               
+               .team-card img {
+                    width: 110px;
+                    height: 110px;
+               }
+               
+               .team-card h3 {
+                    font-size: 20px;
+               }
+               
+               .speech-bubble {
+                    padding: 30px 20px;
+                    font-size: 18px;
+               }
+               
+               .small-thumb {
+                    width: 100px;
+                    height: 100px;
+               }
+               
+               .client-meta h4 {
+                    font-size: 20px;
+               }
+               
+               .cta h2 {
+                    font-size: 32px;
+               }
+               
+               .social-icons a {
+                    width: 45px;
+                    height: 45px;
+                    font-size: 18px;
+               }
+               
+               .whatsapp-float,
+               .top-btn {
+                    right: 20px;
+               }
           }
      </style>
 </head>
 
 <body>
 
-     <!-- NAV -->
-
+     <!-- ===== NAVIGATION ===== -->
      <nav>
-          <img src="logo.png" alt="logo" height="100vh" width="100vh" style="color: #002366; border-radius: 100px;">
-          <h3>The Youth Contest Beyond Vision</h3>
-          <ul id="menu">
-               <li><a href="index.html">Home</a></li>
-               <li><a href="about.html">About</a></li>
-               <li><a href="programs.html">Programs</a></li>
-               <li><a href="contact.html">Contact</a></li>
-               <li><a href="donate.html">Donate</a></li>
-          </ul>
-
-          <div class="hamburger" onclick="toggleMenu()">
-               <i class="fas fa-bars"></i>
+          <div class="nav-container">
+               <a href="index.html" class="logo">
+                    <img src="logo.png" alt="Logo">
+                    <h1>The Youth Contest Beyond Vision</h1>
+               </a>
+               
+               <button class="hamburger" onclick="toggleMenu()">
+                    <i class="fas fa-bars" id="menuIcon"></i>
+               </button>
+               
+               <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="getinvolved.html">Get Involved</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+               </ul>
           </div>
-
      </nav>
 
-     <!-- HERO -->
-
+     <!-- ===== HERO SECTION ===== -->
      <section class="hero">
           <h1>About Our Organization</h1>
-          <p>Debate as Tool for Peace Building</p>
+          <p>Empowering Youth through Debate, Public Speaking and Leadership</p>
      </section>
-     <!-- ORGANIZATION BACKGROUND -->
 
+     <!-- ===== ORGANIZATION BACKGROUND ===== -->
      <section class="section">
-
           <h2>Organization Background</h2>
 
           <div class="background-container">
-
                <div class="background-text">
-
-                    <h3 style="font-size: x-large;"><i class="fas fa-landmark gold"></i> Our Story</h3>
-
-                    <p style="font-size: x-large;">
+                    <h3><i class="fas fa-landmark"></i> Our Story</h3>
+                    <p>
                          The Youth Contest Beyond Vision is a youth-centered non-governmental organization
                          founded to empower secondary school students through debating, public speaking,
                          and leadership development programs.
                     </p>
-
-                    <p style="font-size: x-large;">
+                    <p>
                          The organization was initiated by passionate youth leaders who recognized that
                          many young people possess ideas and talents but lack platforms to express them.
                          Through structured debate training and intellectual competitions, the organization
                          creates safe and inclusive environments for students to grow academically,
                          socially, and ethically.
                     </p>
-
-                    <p style="font-size: x-large;">
-                         Since its establishment, the organization has focused on strengthening students’
+                    <p>
+                         Since its establishment, the organization has focused on strengthening students'
                          critical thinking, research abilities, communication skills, and confidence.
                          Programs are conducted through schools, debate leagues, workshops, mentorship
                          sessions, and collaborative educational partnerships.
                     </p>
 
-                    <h3 style="margin-top:20px; font-size: x-large;"><i class="fas fa-gears gold"></i> How We Operate
-                    </h3>
-
-                    <p style="font-size: x-large;">
+                    <h3 style="margin-top:30px;"><i class="fas fa-gears"></i> How We Operate</h3>
+                    <p>
                          The Youth Contest Beyond Vision operates through partnerships with schools,
                          teachers, youth mentors, and community leaders. The organization delivers
                          training sessions, organizes competitions, and promotes leadership initiatives
                          that encourage peaceful dialogue and civic engagement among youth.
                     </p>
-
-                    <p style="font-size: x-large;">
+                    <p>
                          By combining mentorship, education, and practical competitions, the organization
                          ensures students not only learn debate skills theoretically but also apply them
                          in real-world leadership and communication environments.
                     </p>
-
                </div>
 
                <div class="background-image">
-                    <img src="logo.png" alt="Organization Background">
+                    <img src="3rd season.png" alt="Organization Background">
                </div>
-
           </div>
-
      </section>
 
-
-     <!-- MISSION -->
-
+     <!-- ===== MISSION SECTION ===== -->
      <section class="section">
-          <h2 style="font-size: x-large;">Our Mission</h2>
+          <h2>Our Mission</h2>
 
           <div class="mission">
-
-
-               <img src="prosper.jpg">
-               <div>
-                    <i class="fas fa-bullseye fa-2x gold"></i>
-                    <p style="font-size: x-large;">
+               <div class="mission-content">
+                    <i class="fas fa-bullseye"></i>
+                    <p>
                          We aim at improving critical thinking and communication skills of students so they become
                          active citizens.
                     </p>
-
-                    <p style="margin-top:15px; font-size: x-large;">
+                    <p>
                          Through debate and public speaking training, we promote peaceful conflict resolution and
                          leadership development.
                     </p>
-
-                    <p style="margin-top:15px; font-size: x-large;">
+                    <p>
                          We provide mentorship, competitions, and academic development programs.
                     </p>
                </div>
-
-
+               <img src="2nd season.png" alt="Mission">
           </div>
      </section>
 
-     <!-- VISION -->
-
+     <!-- ===== VISION SECTION ===== -->
      <section class="section">
-          <h2 style="font-size: x-large;">Our Vision</h2>
-
-          <div class="card">
-               <i class="fas fa-eye fa-2x gold"></i>
-
-               <p style="font-size: x-large;">
+          <h2>Our Vision</h2>
+          <div class="vision-card">
+               <i class="fas fa-eye"></i>
+               <p>
                     To build a confident generation of leaders capable of influencing society through communication and
                     ethical leadership.
                </p>
-
-               <p style="margin-top:15px; font-size: x-large;">
+               <p>
                     We envision youth who can confidently express ideas, solve global challenges, and promote peace.
                </p>
-
           </div>
      </section>
 
-     <!-- TEAM -->
+     <!-- ===== TEAM SECTION ===== -->
+     <section class="team-section">
+          <h2 class="section-title">OUR TEAM</h2>
+          <div class="team-grid">
+               <article class="team-card" onclick="openModal('MITARI PROSPER', 'Founder and CEO', 'Visionary leader passionate about youth empowerment and education.')">
+                    <img src="CEO.png" alt="MITARI PROSPER">
+                    <h3>MITARI PROSPER</h3>
+                    <p>Founder and CEO</p>
+               </article>
 
-     <section class="section">
-          <h2>Our Team</h2>
+               <article class="team-card" onclick="openModal('KAMUGISHA BRIAN ALEXIS', 'Chief Operational Officer', 'Strategic leader focused on operational excellence and program delivery.')">
+                    <img src="COO.png" alt="KAMUGISHA BRIAN ALEXIS">
+                    <h3>KAMUGISHA BRIAN ALEXIS</h3>
+                    <p>Chief Operational Officer</p>
+               </article>
 
-          <div class="grid team">
+               <article class="team-card">
+                    <img src="judge1.png" alt="Chief Financial Officer">
+                    <h3>COMING SOON</h3>
+                    <p>Chief Financial Officer</p>
+               </article>
 
-               <script>
-                    let team = ["CEO", "Program Director", "Mentor", "Coordinator", "Training Manager", "Events Manager", "Media Officer"];
-                    team.forEach(name => {
-                         document.write(`<div class="card"><img src=""><h4>${name}</h4></div>`)
-                    });
-               </script>
+               <article class="team-card" onclick="openModal('NKURUNZIZA JEREMIAH', 'Head Judge', 'Expert in debate adjudication and youth mentorship.')">
+                    <img src="Head judge.png" alt="NKURUNZIZA JEREMIAH">
+                    <h3>NKURUNZIZA JEREMIAH</h3>
+                    <p>Head Judge</p>
+               </article>
 
+               <article class="team-card" onclick="openModal('KAYITARE BASORE', 'Creative Director', 'Creative visionary driving brand and communication strategies.')">
+                    <img src="dc.png" alt="KAYITARE BASORE">
+                    <h3>KAYITARE BASORE</h3>
+                    <p>Creative Director</p>
+               </article>
+
+               <article class="team-card">
+                    <img src="judge3.png" alt="MC">
+                    <h3>COMING SOON</h3>
+                    <p>MC</p>
+               </article>
           </div>
      </section>
 
-     <!-- TESTIMONIALS -->
+     <!-- ===== MODAL ===== -->
+     <div id="team-modal" class="modal">
+          <div class="modal-content">
+               <button class="close-btn" onclick="closeModal()">&times;</button>
+               <div id="modal-body" class="modal-body">
+                    <!-- Content will be inserted here by JavaScript -->
+               </div>
+          </div>
+     </div>
 
-     <section class="section">
-          <h2>Testimonials & Speeches</h2>
+     <!-- ===== TESTIMONIALS ===== -->
+     <section class="testimonial-slider">
+          <div class="slider-container">
+               <div class="slider-viewport">
+                    <div class="slider-track" id="sliderTrack">
+                         <!-- Slide 1 -->
+                         <div class="slide">
+                              <div class="speech-bubble">"Working with this team has been life-changing. Their dedication to empowering youth and creating opportunities for growth is truly inspiring. I highly recommend their programs to anyone looking to build a better future."</div>
+                              <div class="client-meta">
+                                   <img src="SPEECH2.png" class="small-thumb">
+                                   <h4>KAYITARE BASORE</h4>
+                                   <p>Creative Director at The Youth Contest</p>
+                              </div>
+                         </div>
+                         <!-- Slide 2 -->
+                         <div class="slide">
+                              <div class="speech-bubble">"Through this organization, I gained confidence, leadership skills, and real opportunities to express my ideas. It is a platform that truly supports young people."</div>
+                              <div class="client-meta">
+                                   <img src="school1.png" class="small-thumb">
+                                   <h4>NKURUNZIZA JEREMIAH</h4>
+                                   <p>Judge at The Youth Contest</p>
+                              </div>
+                         </div>
+                         <!-- Slide 3 -->
+                         <div class="slide">
+                              <div class="speech-bubble">"The Youth Contest has empowered young people to develop confidence, critical thinking, and leadership skills through debates and public speaking. It is a platform where youth voices are heard and future leaders are shaped."</div>
+                              <div class="client-meta">
+                                   <img src="school6.png" class="small-thumb">
+                                   <h4>MUKESHIMANA KEVIN</h4>
+                                   <p>Student at ESSA NYARUGUNGA</p>
+                              </div>
+                         </div>
+                         <!-- Slide 4 -->
+                         <div class="slide">
+                              <div class="speech-bubble">"Through The Youth Contest, participants gain the courage to express their ideas, engage in meaningful discussions, and grow into responsible and confident leaders."</div>
+                              <div class="client-meta">
+                                   <img src="school7.png" class="small-thumb">
+                                   <h4>KIZITO NSUBUGA AMOS</h4>
+                                   <p>Student At ESSA NYARUGUNGA</p>
+                              </div>
+                         </div>
+                         <!-- Slide 5 -->
+                         <div class="slide">
+                              <div class="speech-bubble">"The Youth Contest is transforming youth by building communication skills, promoting teamwork, and inspiring leadership through competitive debates and public speaking programs."</div>
+                              <div class="client-meta">
+                                   <img src="COO.png" class="small-thumb">
+                                   <h4>MUGISHA CHRISS</h4>
+                                   <p>Student At Lycee Saint Marcel De Rukara</p>
+                              </div>
+                         </div>
+                    </div>
+               </div>
 
-          <div class="slider">
-               <div class="slide-track" id="track">
-
-                    <script>
-                         for (let i = 1; i <= 10; i++) {
-                              document.write(`
-<div class="card testimonial">
-<img src="https://via.placeholder.com/80" style="border-radius:50%">
-<p>"Debate helped me grow confidence and leadership skills."</p>
-<h4>- Student ${i}</h4>
-</div>
-`);
-                         }
-                    </script>
-
+               <div class="slider-nav">
+                    <button onclick="moveSlide(-1)">⏮ Prev</button>
+                    <button onclick="moveSlide(1)">Next ⏭</button>
                </div>
           </div>
      </section>
 
-     <!-- CTA -->
-
+     <!-- ===== CTA SECTION ===== -->
      <section class="cta">
           <h2>Join Our Mission</h2>
-
-          <button><i class="fas fa-hands-helping"></i> Volunteer</button>
-          <button><i class="fas fa-donate"></i> Donate</button>
-          <button><i class="fas fa-handshake"></i> Partner</button>
+          <div class="cta-buttons">
+               <a href="#"><button><i class="fas fa-hands-helping"></i> Volunteer</button></a>
+               <a href="donate.html"><button><i class="fas fa-donate"></i> Donate</button></a>
+               <a href="#"><button><i class="fas fa-handshake"></i> Partner</button></a>
+          </div>
      </section>
 
-     <!-- FOOTER -->
-
+     <!-- ===== FOOTER ===== -->
      <footer>
-
           <div class="footer-grid">
-
-               <div>
-                    <h3>Call Us Now</h3>
-                    <p>(+250)790002626</p>
-                    <p>theyouthcontest@gmail.com</p>
+               <div class="footer-col">
+                    <h3>The Youth Contest Beyond Vision</h3>
+                    <p>
+                         Empowering youth through communication, leadership, debate and public speaking skills to build a better future for Rwanda.
+                    </p>
+                    <div class="contact-item">
+                         <i class="fas fa-map-marker-alt"></i>
+                         <span>Kigali, Rwanda</span>
+                    </div>
+                    <div class="contact-item">
+                         <i class="fas fa-phone"></i>
+                         <span>+250 796 870 553</span>
+                    </div>
+                    <div class="contact-item">
+                         <i class="fas fa-envelope"></i>
+                         <span>theyouthcontest@gmail.com</span>
+                    </div>
                </div>
-
-               <div>
+               
+               <div class="footer-col">
                     <h3>Quick Links</h3>
-                    <p>Home</p>
-                    <p>About</p>
-                    <p>Programs</p>
-                    <p>Contact</p>
+                    <ul class="footer-links">
+                         <li><a href="about.html">About Us</a></li>
+                         <li><a href="programs.html">Our Programs</a></li>
+                         <li><a href="contact.html">Contact Us</a></li>
+                         <li><a href="donate.html">Donate</a></li>
+                         <li><a href="getinvolved.html">Get Involved</a></li>
+                    </ul>
                </div>
-
-               <div>
-                    <h3>Get Updates</h3>
-                    <input type="email" placeholder="Email" style="padding:8px;width:100%"> <button
-                         style="color: hwb(30 7% 93%); background-color: #FFD700; border-radius:5px;">Send</button>
+               
+               <div class="footer-col">
+                    <h3>Our Programs</h3>
+                    <ul class="footer-links">
+                         <li><a href="programs.html#debate">Debate Training</a></li>
+                         <li><a href="programs.html#public-speaking">Public Speaking Competitions</a></li>
+                         <li><a href="programs.html#leadership">Leadership Camps</a></li>
+                         <li><a href="programs.html#peacebuilding">Peacebuilding Workshops</a></li>
+                         <li><a href="programs.html#innovation">Innovation Challenges</a></li>
+                    </ul>
                </div>
-
+               
+               <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get updates on our programs and events</p>
+                    <div class="newsletter">
+                         <input type="email" placeholder="Enter your email">
+                         <button><i class="fas fa-paper-plane"></i></button>
+                    </div>
+               </div>
           </div>
-
+          
           <div class="footer-bottom">
-               Copyright © 2026 The Youth Contest Beyond Vision.
-               Developed by <a href="https://linkedin.com/KEVIN THE CYBER CODER" style="color: #FFD700;">MUKESHIMANA
-                    KEVIN</a>
+               <div class="social-icons">
+                    <a href="#" target="_blank" title="Facebook">
+                         <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" target="_blank" title="Instagram">
+                         <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" target="_blank" title="YouTube">
+                         <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" target="_blank" title="Twitter">
+                         <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://wa.me/250796870553" target="_blank" title="WhatsApp">
+                         <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" target="_blank" title="LinkedIn">
+                         <i class="fab fa-linkedin-in"></i>
+                    </a>
+               </div>
+               
+               <div class="copyright">
+                    © 2026 The Youth Contest Beyond Vision. All Rights Reserved. Developed by <a href="https://kevin-the-cyber-coder-8443503aa" target="_blank">MUKESHIMANA KEVIN</a>
+               </div>
           </div>
-
      </footer>
 
-     <!-- FLOAT BUTTONS -->
-
-     <a href="https://wa.me/250790002626" class="whatsapp">
+     <!-- ===== FLOATING BUTTONS ===== -->
+     <a href="https://wa.me/250790002626" class="whatsapp-float" target="_blank">
           <i class="fab fa-whatsapp"></i>
      </a>
 
-     <div class="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+     <div class="top-btn" id="backToTop" onclick="scrollTopPage()">
           <i class="fas fa-arrow-up"></i>
      </div>
 
      <script>
-
-          /* HAMBURGER MENU */
-
+          // ===== MOBILE MENU =====
           function toggleMenu() {
-               document.getElementById("menu").classList.toggle("active");
+               const navLinks = document.getElementById('navLinks');
+               const menuIcon = document.getElementById('menuIcon');
+               
+               navLinks.classList.toggle('active');
+               
+               if (navLinks.classList.contains('active')) {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-times');
+               } else {
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+               }
           }
+          
+          // Close menu when clicking a link
+          document.querySelectorAll('.nav-links a').forEach(link => {
+               link.addEventListener('click', () => {
+                    const navLinks = document.getElementById('navLinks');
+                    const menuIcon = document.getElementById('menuIcon');
+                    
+                    if (navLinks.classList.contains('active')) {
+                         navLinks.classList.remove('active');
+                         menuIcon.classList.remove('fa-times');
+                         menuIcon.classList.add('fa-bars');
+                    }
+               });
+          });
+          
+          // Close menu when clicking outside
+          document.addEventListener('click', function(event) {
+               const navLinks = document.getElementById('navLinks');
+               const menuToggle = document.querySelector('.hamburger');
+               
+               if (navLinks.classList.contains('active')) {
+                    const isClickInsideNav = navLinks.contains(event.target);
+                    const isClickOnMenuToggle = menuToggle.contains(event.target);
+                    
+                    if (!isClickInsideNav && !isClickOnMenuToggle) {
+                         navLinks.classList.remove('active');
+                         document.getElementById('menuIcon').classList.remove('fa-times');
+                         document.getElementById('menuIcon').classList.add('fa-bars');
+                    }
+               }
+          });
 
-          /* TESTIMONIAL AUTO SLIDE 15s */
+          // ===== TEAM MODAL =====
+          function openModal(name, role, bio) {
+               const modal = document.getElementById('team-modal');
+               const modalBody = document.getElementById('modal-body');
+               
+               modalBody.innerHTML = `
+                    <img src="${event.currentTarget.querySelector('img').src}" alt="${name}">
+                    <h3>${name}</h3>
+                    <div class="role">${role}</div>
+                    <p>${bio}</p>
+               `;
+               
+               modal.classList.add('show');
+               document.body.style.overflow = 'hidden';
+          }
+          
+          function closeModal() {
+               document.getElementById('team-modal').classList.remove('show');
+               document.body.style.overflow = 'auto';
+          }
+          
+          // Close modal when clicking outside
+          document.getElementById('team-modal').addEventListener('click', function(event) {
+               if (event.target === this) {
+                    closeModal();
+               }
+          });
+          
+          // Close modal with ESC key
+          document.addEventListener('keydown', function(event) {
+               if (event.key === 'Escape') {
+                    closeModal();
+               }
+          });
 
-          let index = 0;
-          const track = document.getElementById("track");
+          // ===== TESTIMONIAL SLIDER =====
+          let currentIndex = 0;
+          const track = document.getElementById('sliderTrack');
+          const totalSlides = document.querySelectorAll('.slide').length;
+          
+          function moveSlide(direction) {
+               currentIndex += direction;
+               
+               if (currentIndex >= totalSlides) {
+                    currentIndex = 0;
+               } else if (currentIndex < 0) {
+                    currentIndex = totalSlides - 1;
+               }
+               
+               track.style.transform = `translateX(-${currentIndex * 100}%)`;
+          }
+          
+          // Auto-slide every 5 seconds
+          setInterval(() => moveSlide(1), 5000);
 
-          setInterval(() => {
-               index++;
-               track.style.transform = `translateX(${index * -320}px)`;
-
-               if (index > 6) { index = 0; }
-
-          }, 15000);
-
+          // ===== BACK TO TOP =====
+          window.addEventListener('scroll', function() {
+               const backToTop = document.getElementById('backToTop');
+               if (window.scrollY > 300) {
+                    backToTop.classList.add('show');
+               } else {
+                    backToTop.classList.remove('show');
+               }
+          });
+          
+          function scrollTopPage() {
+               window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+               });
+          }
      </script>
 
 </body>

@@ -4,10 +4,11 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Donate | Youth Contest Beyond Vision</title>
+     <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
+     <title>Donate | The Youth Contest Beyond Vision</title>
 
      <!-- Google Font -->
-     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
      <!-- FontAwesome -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -23,54 +24,99 @@
           body {
                background: #f8f9fb;
                color: #333;
+               line-height: 1.6;
           }
 
-          /* ===== NAV ===== */
-
+          /* ===== NAVIGATION ===== */
           nav {
-               background: #111;
-               color: white;
-               display: flex;
-               justify-content: space-between;
-               align-items: center;
-               padding: 15px 40px;
+               background: white;
+               box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
                position: sticky;
                top: 0;
                z-index: 1000;
           }
 
+          .nav-container {
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+               padding: 15px 5%;
+               max-width: 1400px;
+               margin: auto;
+          }
+
           .logo {
+               display: flex;
+               align-items: center;
+               gap: 15px;
+               text-decoration: none;
+          }
+
+          .logo img {
+               height: 70px;
+               border: 3px solid #f2b705;
+               border-radius: 50%;
+               object-fit: cover;
+          }
+
+          .logo h1 {
+               color: #1c3c6b;
+               font-size: 24px;
                font-weight: 700;
           }
 
           .nav-links {
                display: flex;
+               list-style: none;
                gap: 30px;
           }
 
           .nav-links a {
-               color: white;
+               color: #1c3c6b;
                text-decoration: none;
-               transition: .3s;
+               font-weight: 600;
+               font-size: 16px;
+               padding: 8px 0;
+               position: relative;
+               transition: 0.3s;
           }
 
-          .nav-links a:hover {
-               color: gold;
+          .nav-links a:hover,
+          .nav-links a.active {
+               color: #f2b705;
+          }
+
+          .nav-links a::after {
+               content: '';
+               position: absolute;
+               bottom: 0;
+               left: 0;
+               width: 0;
+               height: 2px;
+               background: #f2b705;
+               transition: 0.3s;
+          }
+
+          .nav-links a:hover::after {
+               width: 100%;
           }
 
           .hamburger {
                display: none;
-               font-size: 22px;
+               background: none;
+               border: none;
+               font-size: 28px;
+               color: #1c3c6b;
                cursor: pointer;
+               padding: 0;
+               z-index: 2000;
           }
 
-          /* ===== HERO ===== */
-
+          /* ===== HERO SECTION ===== */
           .hero {
-               height: 50vh;
-               background:
-                    linear-gradient(rgba(0, 0, 0, .65), rgba(0, 0, 0, .65)),
-                    url("https://images.unsplash.com/photo-1532629345422-7515f3d16bb6");
+               height: 60vh;
+               background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                           url("https://images.unsplash.com/photo-1532629345422-7515f3d16bb6") center/cover no-repeat;
                background-size: cover;
                background-position: center;
                display: flex;
@@ -78,260 +124,966 @@
                justify-content: center;
                text-align: center;
                color: white;
+               padding: 0 20px;
           }
 
           .hero h1 {
-               font-size: 45px;
+               font-size: 56px;
+               font-weight: 700;
+               text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
           }
 
-          /* ===== SECTION ===== */
-
+          /* ===== SECTION STYLES ===== */
           section {
-               padding: 80px 10%;
+               padding: 80px 5%;
+               max-width: 1400px;
+               margin: auto;
+          }
+
+          .section-title {
+               text-align: center;
+               font-size: 42px;
+               color: #1c3c6b;
+               margin-bottom: 60px;
+               position: relative;
+               display: inline-block;
+               left: 50%;
+               transform: translateX(-50%);
+          }
+
+          .section-title::after {
+               content: '';
+               position: absolute;
+               bottom: -10px;
+               left: 50%;
+               transform: translateX(-50%);
+               width: 70px;
+               height: 4px;
+               background: #f2b705;
+               border-radius: 2px;
           }
 
           /* ===== WHY DONATE ===== */
-
           .why {
                text-align: center;
-               max-width: 700px;
+               max-width: 800px;
                margin: auto;
                margin-bottom: 60px;
           }
 
-          /* ===== DONATION BOX ===== */
+          .why h2 {
+               font-size: 36px;
+               margin-bottom: 20px;
+               color: #1c3c6b;
+          }
 
+          .why p {
+               font-size: 18px;
+               color: #555;
+               line-height: 1.8;
+          }
+
+          /* ===== DONATION BOX ===== */
           .donate-box {
                background: white;
-               padding: 40px;
+               padding: 45px;
                border-radius: 15px;
-               box-shadow: 0 10px 25px rgba(0, 0, 0, .1);
-               max-width: 700px;
+               box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+               max-width: 750px;
                margin: auto;
+          }
+
+          .donate-box h3 {
+               font-size: 28px;
+               color: #1c3c6b;
+               margin-bottom: 25px;
+               text-align: center;
           }
 
           .amounts {
                display: flex;
                flex-wrap: wrap;
+               justify-content: center;
                gap: 15px;
-               margin: 20px 0;
+               margin: 25px 0;
           }
 
           .amounts button {
-               padding: 12px 20px;
-               border: 2px solid gold;
+               padding: 14px 25px;
+               border: 2px solid #f2b705;
                background: none;
                cursor: pointer;
                font-weight: 600;
-               transition: .3s;
+               font-size: 16px;
+               color: #1c3c6b;
+               border-radius: 10px;
+               transition: 0.3s;
           }
 
           .amounts button:hover {
-               background: gold;
+               background: #f2b705;
+               color: #1c3c6b;
+               transform: translateY(-3px);
+               box-shadow: 0 5px 15px rgba(242, 183, 5, 0.3);
           }
 
           .custom-amount {
                width: 100%;
-               padding: 12px;
-               border: 1px solid #ccc;
-               border-radius: 8px;
-               margin-bottom: 20px;
+               padding: 14px;
+               border: 2px solid #e2e8f0;
+               border-radius: 10px;
+               margin-bottom: 25px;
+               font-size: 16px;
+               text-align: center;
+               font-family: 'Poppins', sans-serif;
+               transition: 0.3s;
+          }
+
+          .custom-amount:focus {
+               border-color: #f2b705;
+               box-shadow: 0 0 0 3px rgba(242, 183, 5, 0.1);
+               outline: none;
           }
 
           .donate-btn {
                width: 100%;
-               padding: 14px;
+               padding: 16px;
                border: none;
-               background: gold;
-               font-weight: 600;
+               background: #f2b705;
+               color: #1c3c6b;
+               font-weight: 700;
+               font-size: 18px;
                cursor: pointer;
-               transition: .3s;
+               transition: 0.3s;
+               border-radius: 10px;
+               box-shadow: 0 4px 15px rgba(242, 183, 5, 0.3);
           }
 
           .donate-btn:hover {
-               transform: scale(1.05);
+               background: #e6a800;
+               transform: scale(1.03);
+               box-shadow: 0 6px 20px rgba(242, 183, 5, 0.4);
           }
 
           /* ===== PAYMENT METHODS ===== */
-
           .payment-methods {
                display: grid;
-               grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-               gap: 25px;
+               grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+               gap: 30px;
                margin-top: 50px;
           }
 
           .payment-card {
                background: white;
-               padding: 30px;
+               padding: 35px 30px;
                border-radius: 15px;
-               box-shadow: 0 8px 20px rgba(0, 0, 0, .1);
+               box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
                text-align: center;
-               transition: .3s;
+               transition: 0.4s ease;
           }
 
           .payment-card:hover {
-               transform: translateY(-8px);
+               transform: translateY(-12px);
+               box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
           }
 
           .payment-card i {
-               font-size: 40px;
-               color: gold;
+               font-size: 48px;
+               color: #f2b705;
+               margin-bottom: 20px;
+          }
+
+          .payment-card h3 {
+               font-size: 22px;
+               color: #1c3c6b;
                margin-bottom: 15px;
           }
 
-          /* ===== TRUST BADGES ===== */
+          .payment-card p {
+               color: #555;
+               line-height: 1.8;
+          }
 
+          /* ===== TRUST BADGES ===== */
           .trust {
                text-align: center;
-               margin-top: 60px;
+               margin-top: 70px;
+          }
+
+          .trust h2 {
+               font-size: 36px;
+               color: #1c3c6b;
+               margin-bottom: 30px;
           }
 
           .trust i {
-               font-size: 30px;
-               margin: 15px;
-               color: gold;
+               font-size: 40px;
+               margin: 0 15px;
+               color: #f2b705;
+               transition: 0.3s;
           }
 
-          /* ===== FLOAT BUTTONS ===== */
+          .trust i:hover {
+               transform: scale(1.2) rotate(10deg);
+          }
 
-          .whatsapp {
+          /* ===== MODAL STYLES ===== */
+          .modal {
+               display: none;
                position: fixed;
-               bottom: 20px;
-               left: 20px;
+               top: 0;
+               left: 0;
+               width: 100%;
+               height: 100%;
+               background-color: rgba(0, 0, 0, 0.85);
+               z-index: 2000;
+               justify-content: center;
+               align-items: center;
+          }
+
+          .modal.show {
+               display: flex;
+          }
+
+          .modal-content {
+               background: white;
+               border-radius: 20px;
+               width: 90%;
+               max-width: 850px;
+               max-height: 90vh;
+               overflow-y: auto;
+               box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+               position: relative;
+               animation: modalOpen 0.4s ease;
+          }
+
+          @keyframes modalOpen {
+               from {
+                    opacity: 0;
+                    transform: translateY(-50px);
+               }
+               to {
+                    opacity: 1;
+                    transform: translateY(0);
+               }
+          }
+
+          .modal-header {
+               background: linear-gradient(135deg, #1c3c6b, #2a58a8);
+               color: white;
+               padding: 30px;
+               text-align: center;
+               border-radius: 20px 20px 0 0;
+               position: sticky;
+               top: 0;
+               z-index: 10;
+          }
+
+          .modal-header h2 {
+               font-size: 32px;
+               margin-bottom: 15px;
+          }
+
+          .close-modal {
+               position: absolute;
+               top: 20px;
+               right: 25px;
+               font-size: 32px;
+               color: white;
+               cursor: pointer;
+               transition: 0.3s;
+               background: none;
+               border: none;
+          }
+
+          .close-modal:hover {
+               color: #f2b705;
+               transform: rotate(90deg);
+          }
+
+          .modal-body {
+               padding: 35px;
+          }
+
+          .payment-tabs {
+               display: flex;
+               gap: 12px;
+               margin-bottom: 35px;
+               flex-wrap: wrap;
+               justify-content: center;
+          }
+
+          .tab-btn {
+               flex: 1;
+               min-width: 160px;
+               padding: 14px;
+               background: #f8f9fb;
+               border: 2px solid #e0e0e0;
+               border-radius: 12px;
+               cursor: pointer;
+               font-weight: 600;
+               font-size: 16px;
+               transition: 0.3s;
+               text-align: center;
+          }
+
+          .tab-btn:hover {
+               background: #f0f0f0;
+               transform: translateY(-2px);
+          }
+
+          .tab-btn.active {
+               background: #f2b705;
+               border-color: #f2b705;
+               color: #1c3c6b;
+               box-shadow: 0 4px 15px rgba(242, 183, 5, 0.3);
+          }
+
+          .tab-content {
+               display: none;
+          }
+
+          .tab-content.active {
+               display: block;
+               animation: fadeIn 0.4s ease;
+          }
+
+          @keyframes fadeIn {
+               from {
+                    opacity: 0;
+               }
+               to {
+                    opacity: 1;
+               }
+          }
+
+          .payment-option {
+               background: #f8f9fb;
+               padding: 25px;
+               border-radius: 15px;
+               margin-bottom: 25px;
+               border-left: 5px solid #f2b705;
+          }
+
+          .payment-option h3 {
+               color: #1c3c6b;
+               margin-bottom: 15px;
+               font-size: 22px;
+               display: flex;
+               align-items: center;
+               gap: 10px;
+          }
+
+          .payment-option p {
+               margin-bottom: 10px;
+               line-height: 1.7;
+               color: #555;
+          }
+
+          .payment-option .number {
+               font-size: 20px;
+               font-weight: 700;
+               color: #1c3c6b;
+               background: white;
+               padding: 10px 18px;
+               border-radius: 10px;
+               display: inline-block;
+               margin: 8px 0;
+               word-break: break-all;
+               border: 2px solid #e2e8f0;
+          }
+
+          .contact-info {
+               background: linear-gradient(135deg, #1c3c6b, #2a58a8);
+               color: white;
+               padding: 30px;
+               border-radius: 15px;
+               margin-top: 25px;
+          }
+
+          .contact-info h3 {
+               margin-bottom: 20px;
+               font-size: 24px;
+               display: flex;
+               align-items: center;
+               gap: 10px;
+          }
+
+          .contact-info p {
+               margin-bottom: 12px;
+               display: flex;
+               align-items: center;
+               gap: 12px;
+               font-size: 16px;
+          }
+
+          .contact-info i {
+               color: #f2b705;
+               font-size: 20px;
+          }
+
+          .bank-details {
+               background: #f8f9fb;
+               padding: 30px;
+               border-radius: 15px;
+               margin-top: 25px;
+          }
+
+          .bank-details h3 {
+               color: #1c3c6b;
+               margin-bottom: 20px;
+               font-size: 24px;
+          }
+
+          .bank-details .detail-item {
+               margin-bottom: 15px;
+               padding: 12px;
+               background: white;
+               border-radius: 10px;
+               border-left: 4px solid #f2b705;
+          }
+
+          .bank-details .detail-item strong {
+               color: #1c3c6b;
+               font-size: 16px;
+          }
+
+          .copy-btn {
+               background: #f2b705;
+               border: none;
+               padding: 10px 20px;
+               border-radius: 8px;
+               cursor: pointer;
+               margin-top: 8px;
+               font-weight: 600;
+               font-size: 15px;
+               transition: 0.3s;
+               display: inline-flex;
+               align-items: center;
+               gap: 8px;
+          }
+
+          .copy-btn:hover {
+               background: #e6a800;
+               transform: scale(1.05);
+          }
+
+          .modal-footer {
+               padding: 25px;
+               text-align: center;
+               background: #f8f9fb;
+               border-top: 2px solid #e0e0e0;
+               border-radius: 0 0 20px 20px;
+          }
+
+          .modal-footer p {
+               color: #666;
+               font-size: 15px;
+               line-height: 1.6;
+          }
+
+          /* ===== FLOATING BUTTONS ===== */
+          .whatsapp-float {
+               position: fixed;
+               bottom: 90px;
+               right: 30px;
                background: #25d366;
                color: white;
-               padding: 15px;
+               width: 60px;
+               height: 60px;
                border-radius: 50%;
-               font-size: 22px;
-               z-index: 1000;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               font-size: 28px;
+               text-decoration: none;
+               box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+               z-index: 999;
+               transition: 0.3s;
+          }
+
+          .whatsapp-float:hover {
+               transform: scale(1.1) rotate(10deg);
+               box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
           }
 
           .top-btn {
                position: fixed;
-               bottom: 20px;
-               right: 20px;
-               background: gold;
-               padding: 12px 16px;
+               bottom: 30px;
+               right: 30px;
+               background: #f2b705;
+               color: #1c3c6b;
+               width: 55px;
+               height: 55px;
+               border-radius: 50%;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               font-size: 24px;
                cursor: pointer;
-               display: none;
-               z-index: 1000;
+               box-shadow: 0 4px 15px rgba(242, 183, 5, 0.4);
+               z-index: 999;
+               opacity: 0;
+               visibility: hidden;
+               transition: 0.3s;
+          }
+
+          .top-btn.show {
+               opacity: 1;
+               visibility: visible;
+          }
+
+          .top-btn:hover {
+               transform: scale(1.1) translateY(-3px);
+               box-shadow: 0 6px 20px rgba(242, 183, 5, 0.5);
           }
 
           /* ===== FOOTER ===== */
-
           footer {
-               background: #111;
+               background: #1c3c6b;
                color: white;
-               padding: 40px 10%;
-               text-align: center;
+               padding: 70px 5% 30px;
+               margin-top: 80px;
           }
 
-          /* ===== MOBILE ===== */
+          .footer-grid {
+               display: grid;
+               grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+               gap: 40px;
+               margin-bottom: 50px;
+          }
 
-          @media(max-width:768px) {
+          .footer-col h3 {
+               color: #f2b705;
+               font-size: 22px;
+               margin-bottom: 25px;
+               position: relative;
+               padding-bottom: 10px;
+          }
 
-               .nav-links {
-                    display: none;
-                    flex-direction: column;
-                    background: #111;
-                    position: absolute;
-                    top: 60px;
-                    right: 0;
-                    width: 220px;
-                    padding: 20px;
+          .footer-col h3::after {
+               content: '';
+               position: absolute;
+               bottom: 0;
+               left: 0;
+               width: 40px;
+               height: 3px;
+               background: #f2b705;
+               border-radius: 2px;
+          }
+
+          .footer-col p {
+               margin: 15px 0;
+               opacity: 0.85;
+               line-height: 1.7;
+          }
+
+          .footer-links {
+               list-style: none;
+               margin-top: 20px;
+          }
+
+          .footer-links li {
+               margin-bottom: 12px;
+          }
+
+          .footer-links a {
+               color: white;
+               text-decoration: none;
+               transition: 0.3s;
+               opacity: 0.85;
+               display: block;
+               padding: 5px 0;
+          }
+
+          .footer-links a:hover {
+               color: #f2b705;
+               opacity: 1;
+               transform: translateX(5px);
+          }
+
+          .contact-item {
+               display: flex;
+               align-items: flex-start;
+               gap: 12px;
+               margin: 15px 0;
+               opacity: 0.85;
+          }
+
+          .contact-item i {
+               color: #f2b705;
+               font-size: 20px;
+               margin-top: 3px;
+          }
+
+          .newsletter {
+               display: flex;
+               margin-top: 20px;
+          }
+
+          .newsletter input {
+               flex: 1;
+               padding: 14px 15px;
+               border: none;
+               border-radius: 50px 0 0 50px;
+               font-family: 'Poppins', sans-serif;
+          }
+
+          .newsletter button {
+               background: #f2b705;
+               border: none;
+               color: #1c3c6b;
+               padding: 0 25px;
+               border-radius: 0 50px 50px 0;
+               cursor: pointer;
+               font-weight: 600;
+               transition: 0.3s;
+          }
+
+          .newsletter button:hover {
+               background: #e6a800;
+          }
+
+          /* SOCIAL MEDIA */
+          .footer-bottom {
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               gap: 25px;
+               padding-top: 30px;
+               border-top: 1px solid rgba(255, 255, 255, 0.15);
+          }
+
+          .social-icons {
+               display: flex;
+               gap: 20px;
+               justify-content: center;
+          }
+
+          .social-icons a {
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               width: 50px;
+               height: 50px;
+               background: rgba(255, 255, 255, 0.1);
+               border-radius: 50%;
+               color: white;
+               font-size: 20px;
+               transition: 0.3s;
+               text-decoration: none;
+          }
+
+          .social-icons a:hover {
+               background: #f2b705;
+               color: #1c3c6b;
+               transform: translateY(-3px);
+               box-shadow: 0 5px 15px rgba(242, 183, 5, 0.4);
+          }
+
+          .copyright {
+               text-align: center;
+               color: rgba(255, 255, 255, 0.7);
+               font-size: 15px;
+               margin: 0;
+               padding: 10px 0;
+               width: 100%;
+          }
+
+          .copyright a {
+               color: #f2b705;
+               font-weight: 600;
+               text-decoration: none;
+               transition: 0.3s;
+          }
+
+          .copyright a:hover {
+               text-decoration: underline;
+          }
+
+          /* ===== RESPONSIVE DESIGN ===== */
+          @media (max-width: 992px) {
+               .hero h1 {
+                    font-size: 48px;
                }
-
-               .nav-links.show {
-                    display: flex;
+               
+               section {
+                    padding: 70px 4%;
                }
+          }
 
+          @media (max-width: 768px) {
                .hamburger {
                     display: block;
                }
+               
+               .nav-links {
+                    position: fixed;
+                    top: 80px;
+                    right: -100%;
+                    flex-direction: column;
+                    background: white;
+                    width: 85%;
+                    height: calc(100vh - 80px);
+                    padding: 40px 30px;
+                    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                    transition: 0.4s ease;
+                    z-index: 999;
+                    gap: 25px;
+               }
+               
+               .nav-links.active {
+                    right: 0;
+               }
+               
+               .hero {
+                    height: 50vh;
+               }
+               
+               .hero h1 {
+                    font-size: 38px;
+               }
+               
+               .section-title {
+                    font-size: 32px;
+               }
+               
+               .why h2 {
+                    font-size: 30px;
+               }
+               
+               .donate-box {
+                    padding: 35px 25px;
+               }
+               
+               .donate-box h3 {
+                    font-size: 24px;
+               }
+               
+               .amounts {
+                    flex-direction: column;
+               }
+               
+               .amounts button {
+                    width: 100%;
+                    padding: 16px;
+               }
+               
+               .custom-amount {
+                    padding: 12px;
+               }
+               
+               .donate-btn {
+                    padding: 18px;
+               }
+               
+               .modal-content {
+                    width: 95%;
+                    max-height: 85vh;
+               }
+               
+               .payment-tabs {
+                    flex-direction: column;
+               }
+               
+               .tab-btn {
+                    width: 100%;
+               }
+               
+               .footer-grid {
+                    grid-template-columns: 1fr;
+                    text-align: center;
+               }
+               
+               .newsletter {
+                    flex-direction: column;
+                    gap: 10px;
+               }
+               
+               .newsletter input,
+               .newsletter button {
+                    width: 100%;
+                    border-radius: 50px;
+               }
+               
+               .contact-item {
+                    justify-content: center;
+                    text-align: center;
+               }
+          }
 
+          @media (max-width: 480px) {
+               .nav-container {
+                    padding: 12px 4%;
+               }
+               
+               .logo h1 {
+                    font-size: 20px;
+               }
+               
+               .logo img {
+                    height: 60px;
+               }
+               
+               .hero {
+                    height: 40vh;
+                    padding: 0 15px;
+               }
+               
                .hero h1 {
                     font-size: 32px;
                }
-
+               
+               .section-title {
+                    font-size: 28px;
+               }
+               
+               section {
+                    padding: 60px 3%;
+               }
+               
+               .why h2 {
+                    font-size: 26px;
+               }
+               
+               .why p {
+                    font-size: 16px;
+               }
+               
+               .donate-box {
+                    padding: 30px 20px;
+               }
+               
+               .donate-box h3 {
+                    font-size: 22px;
+               }
+               
+               .amounts button {
+                    padding: 14px;
+                    font-size: 15px;
+               }
+               
+               .custom-amount {
+                    padding: 10px;
+                    font-size: 15px;
+               }
+               
+               .donate-btn {
+                    padding: 16px;
+                    font-size: 16px;
+               }
+               
+               .payment-card {
+                    padding: 30px 20px;
+               }
+               
+               .payment-card i {
+                    font-size: 40px;
+               }
+               
+               .payment-card h3 {
+                    font-size: 20px;
+               }
+               
+               .trust i {
+                    font-size: 35px;
+                    margin: 0 10px;
+               }
+               
+               .modal-header h2 {
+                    font-size: 26px;
+               }
+               
+               .modal-body {
+                    padding: 25px;
+               }
+               
+               .social-icons a {
+                    width: 45px;
+                    height: 45px;
+                    font-size: 18px;
+               }
+               
+               .whatsapp-float,
+               .top-btn {
+                    right: 20px;
+               }
           }
      </style>
 </head>
 
 <body>
 
-     <!-- ===== NAV ===== -->
-
+     <!-- ===== NAVIGATION ===== -->
      <nav>
-          <div class="logo">Youth Contest Beyond Vision</div>
-
-          <div class="nav-links" id="navLinks">
-               <a href="index.html">Home</a>
-               <a href="about.html">About</a>
-               <a href="programs.html">Projects</a>
-               <a href="contact.html">Contact</a>
-               <a href="#">Donate</a>
-          </div>
-
-          <div class="hamburger" onclick="toggleMenu()">
-               <i class="fas fa-bars"></i>
+          <div class="nav-container">
+               <a href="index.html" class="logo">
+                    <img src="logo.png" alt="Logo">
+                    <h1>The Youth Contest Beyond Vision</h1>
+               </a>
+               
+               <button class="hamburger" onclick="toggleMenu()">
+                    <i class="fas fa-bars" id="menuIcon"></i>
+               </button>
+               
+               <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="getinvolved.html">Get Involved</a></li>
+                    <li><a href="donate.html" class="active">Donate</a></li>
+               </ul>
           </div>
      </nav>
 
-     <!-- ===== HERO ===== -->
-
+     <!-- ===== HERO SECTION ===== -->
      <section class="hero">
           <h1>Support Our Youth Through Donation</h1>
      </section>
 
      <!-- ===== WHY DONATE ===== -->
-
      <section>
           <div class="why">
                <h2>Why Your Donation Matters</h2>
                <p>
                     Your support helps us train secondary school students in debate, leadership,
-                    peacebuilding, and communication skills. Every contribution helps empower
+                    public speaking, and communication skills. Every contribution helps empower
                     Rwandan youth to become responsible leaders and confident speakers.
                </p>
           </div>
 
           <!-- DONATION FORM -->
-
           <div class="donate-box">
-
                <h3>Select Donation Amount (RWF)</h3>
 
                <div class="amounts">
-                    <button onclick="setAmount(5000)">5,000</button>
-                    <button onclick="setAmount(10000)">10,000</button>
-                    <button onclick="setAmount(25000)">25,000</button>
-                    <button onclick="setAmount(50000)">50,000</button>
+                    <button onclick="setAmount(5000)">RWF 50,000</button>
+                    <button onclick="setAmount(10000)">RWF 100,000</button>
+                    <button onclick="setAmount(25000)">RWF 500,000</button>
+                    <button onclick="setAmount(50000)">RWF 1,000,000</button>
                </div>
 
-               <input type="number" id="amount" class="custom-amount" placeholder="Enter Custom Amount">
+               <input type="number" id="amount" class="custom-amount" placeholder="Enter Custom Amount (RWF)" min="1000">
 
-               <button class="donate-btn">
+               <button class="donate-btn" onclick="openModal()">
                     <i class="fas fa-heart"></i> Donate Now
                </button>
-
           </div>
      </section>
 
      <!-- ===== PAYMENT METHODS ===== -->
-
      <section>
-
-          <h2 style="text-align:center;margin-bottom:40px;">Payment Methods</h2>
+          <h2 class="section-title">Payment Methods</h2>
 
           <div class="payment-methods">
-
                <div class="payment-card">
-                    <i class="fas fa-mobile-screen"></i>
+                    <i class="fas fa-mobile-alt"></i>
                     <h3>Mobile Money</h3>
                     <p>
-                         MTN / Airtel Money <br>
-                         (+250) 79000 2626
+                         MTN: +250 796 870 553<br>
+                         Airtel: +250 737 295 774 <br>
+                         Code:*183*8*1*1872728*Amount*PIN#
                     </p>
                </div>
 
@@ -339,71 +1091,377 @@
                     <i class="fas fa-university"></i>
                     <h3>Bank Transfer</h3>
                     <p>
-                         Bank of Kigali <br>
-                         Account Name: Youth Contest Beyond Vision <br>
-                         Account No: 000000000
+                         EQUITY Bank<br>
+                         Account Name: The Youth Contest<br>
+                         Account No: 4027101294471
                     </p>
                </div>
 
                <div class="payment-card">
-                    <i class="fab fa-paypal"></i>
+                    <i class="fas fa-credit-card"></i>
                     <h3>Online Payment</h3>
                     <p>
-                         PayPal / Online gateway support coming soon.
+                        PayPal / Online gateway support coming soon.
                     </p>
                </div>
-
           </div>
-
      </section>
 
-     <!-- ===== TRUST ===== -->
+     
 
-     <section class="trust">
-          <h2>Your Donation Is Secure</h2>
-          <i class="fas fa-shield-halved"></i>
-          <i class="fas fa-lock"></i>
-          <i class="fas fa-hand-holding-heart"></i>
-     </section>
+     <!-- ===== MODAL ===== -->
+     <div class="modal" id="donateModal">
+          <div class="modal-content">
+               <div class="modal-header">
+                    <button class="close-modal" onclick="closeModal()">&times;</button>
+                    <h2><i class="fas fa-hand-holding-heart"></i> Complete Your Donation</h2>
+                    <p id="modalAmountDisplay">Amount: RWF 0</p>
+               </div>
 
-     <!-- ===== FLOAT BUTTONS ===== -->
+               <div class="modal-body">
+                    <div class="payment-tabs">
+                         <button class="tab-btn active" onclick="switchTab('mobile')">📱 Mobile Money</button>
+                         <button class="tab-btn" onclick="switchTab('bank')">🏦 Bank Transfer</button>
+                         <button class="tab-btn" onclick="switchTab('contact')">📞 Contact Info</button>
+                    </div>
 
-     <a href="https://wa.me/250790002626" class="whatsapp">
+                    <!-- Mobile Money Tab -->
+                    <div id="mobile" class="tab-content active">
+                         <h3>Select Your Mobile Money Provider</h3>
+
+                         <div class="payment-option">
+                              <h3><i class="fas fa-mobile-alt"></i> MTN Mobile Money</h3>
+                              <p><strong>Phone Number:</strong></p>
+                              <p class="number">+250 796 870 553</p>
+                              <p><strong>Account Name:</strong>Mitari Prosper</p>
+                              <button class="copy-btn" onclick="copyText('+250 796 870 553', this)">
+                                   <i class="fas fa-copy"></i> Copy Number
+                              </button>
+                         </div>
+
+                         <div class="payment-option">
+                              <h3><i class="fas fa-mobile-alt"></i> Airtel Money</h3>
+                              <p><strong>Phone Number:</strong></p>
+                              <p class="number">+250 737 295 774</p>
+                              <p><strong>Account Name:</strong>Kamugisha Brian Alexis</p>
+                              <button class="copy-btn" onclick="copyText('+250 737 295 774', this)">
+                                   <i class="fas fa-copy"></i> Copy Number
+                              </button>
+                         </div>
+
+                         <div class="contact-info">
+                              <h3><i class="fas fa-info-circle"></i> Need Help?</h3>
+                              <p><i class="fas fa-phone"></i> Call us: +250 796 870 553</p>
+                              <p><i class="fab fa-whatsapp"></i> WhatsApp: +250 788 328 727</p>
+                              <p><i class="fas fa-envelope"></i> Email: theyouthcontest@gmail.com</p>
+                         </div>
+                    </div>
+
+                    <!-- Bank Transfer Tab -->
+                    <div id="bank" class="tab-content">
+                         <h3>Bank Transfer Details</h3>
+
+                         <div class="bank-details">
+                              <div class="detail-item">
+                                   <strong><i class="fas fa-university"></i> Bank Name:</strong>
+                                   <p>EQUITY Bank</p>
+                              </div>
+
+                              <div class="detail-item">
+                                   <strong><i class="fas fa-user"></i> Account Name:</strong>
+                                   <p>The Youth Contest Beyond Vision</p>
+                              </div>
+
+                              <div class="detail-item">
+                                   <strong><i class="fas fa-hashtag"></i> Account Number:</strong>
+                                   <p class="number">4027101294471</p>
+                                   <button class="copy-btn" onclick="copyText('4027101294471', this)">
+                                        <i class="fas fa-copy"></i> Copy Account Number
+                                   </button>
+                              </div>
+
+                              <div class="detail-item">
+                                   <strong><i class="fas fa-code"></i> SWIFT Code:</strong>
+                                   <p>BOKIRWRW</p>
+                              </div>
+
+                              <div class="detail-item">
+                                   <strong><i class="fas fa-map-marker-alt"></i> Branch:</strong>
+                                   <p>Kigali Main Branch</p>
+                              </div>
+                         </div>
+
+                         <div class="contact-info">
+                              <h3><i class="fas fa-exclamation-triangle"></i> Important Notice</h3>
+                              <p><i class="fas fa-check-circle"></i> Please use your email as reference when making transfer</p>
+                              <p><i class="fas fa-check-circle"></i> Send proof of payment to our email</p>
+                              <p><i class="fas fa-check-circle"></i> We'll confirm your donation within 24 hours</p>
+                         </div>
+                    </div>
+
+                    <!-- Contact Info Tab -->
+                    <div id="contact" class="tab-content">
+                         <h3>Contact Information</h3>
+
+                         <div class="contact-info">
+                              <h3><i class="fas fa-building"></i> Organization Details</h3>
+                              <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> Kigali, Rwanda</p>
+                              <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +250 796 870 553</p>
+                              <p><i class="fab fa-whatsapp"></i> <strong>WhatsApp:</strong> +250 788 328 727</p>
+                              <p><i class="fas fa-envelope"></i> <strong>Email:</strong> theyouthcontest@gmail.com</p>
+                              <p><i class="fas fa-globe"></i> <strong>Website:</strong> www.theyouthcontest.org</p>
+                         </div>
+
+                         <div class="payment-option">
+                              <h3><i class="fas fa-user-tie"></i> Contact Persons</h3>
+                              <p><strong>Program Director:</strong> +250 788 328 727</p>
+                              <p><strong>Finance Manager:</strong> +250 737 295 774</p>
+                              <p><strong>General Inquiries:</strong> theyouthcontest@gmail.com</p>
+                         </div>
+
+                         <div class="contact-info">
+                              <h3><i class="fas fa-clock"></i> Office Hours</h3>
+                              <p><i class="fas fa-calendar"></i> Monday - Friday: 9:00 AM - 5:00 PM</p>
+                              <p><i class="fas fa-calendar"></i> Saturday: 10:00 AM - 2:00 PM</p>
+                              <p><i class="fas fa-calendar-times"></i> Sunday: Closed</p>
+                         </div>
+                    </div>
+               </div>
+
+               <div class="modal-footer">
+                    <p><i class="fas fa-lock"></i> Your donation is secure and will directly support youth programs</p>
+                    <p style="margin-top: 10px; font-weight: 600; color: #1c3c6b;">
+                         Thank you for supporting Rwandan youth! 🙏
+                    </p>
+               </div>
+          </div>
+     </div>
+
+     <!-- ===== FLOATING BUTTONS ===== -->
+     <a href="https://wa.me/250796870533" class="whatsapp-float" target="_blank">
           <i class="fab fa-whatsapp"></i>
      </a>
 
-     <div class="top-btn" id="topBtn" onclick="scrollTopPage()">
+     <div class="top-btn" id="backToTop" onclick="scrollTopPage()">
           <i class="fas fa-arrow-up"></i>
      </div>
 
      <!-- ===== FOOTER ===== -->
-
      <footer>
-          <p>© 2026 The Youth Contest Beyond Vision | Developed by Kevin The Cyber Coder</p>
+          <div class="footer-grid">
+               <div class="footer-col">
+                    <h3>The Youth Contest Beyond Vision</h3>
+                    <p>
+                         Empowering youth through communication, leadership, debate and public speaking skills to build a better future for Rwanda.
+                    </p>
+                    <div class="contact-item">
+                         <i class="fas fa-map-marker-alt"></i>
+                         <span>Kigali, Rwanda</span>
+                    </div>
+                    <div class="contact-item">
+                         <i class="fas fa-phone"></i>
+                         <span>+250 796 870 553</span>
+                    </div>
+                    <div class="contact-item">
+                         <i class="fas fa-envelope"></i>
+                         <span>theyouthcontest@gmail.com</span>
+                    </div>
+               </div>
+               
+               <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                         <li><a href="about.html">About Us</a></li>
+                         <li><a href="programs.html">Our Programs</a></li>
+                         <li><a href="contact.html">Contact Us</a></li>
+                         <li><a href="donate.html">Donate</a></li>
+                         <li><a href="getinvolved.html">Get Involved</a></li>
+                    </ul>
+               </div>
+               
+               <div class="footer-col">
+                    <h3>Our Programs</h3>
+                    <ul class="footer-links">
+                         <li><a href="programs.html#debate">Debate Training</a></li>
+                         <li><a href="programs.html#public-speaking">Public Speaking</a></li>
+                         <li><a href="programs.html#leadership">Leadership Camps</a></li>
+                         <li><a href="programs.html#peacebuilding">Peacebuilding</a></li>
+                         <li><a href="programs.html#competitions">Competitions</a></li>
+                    </ul>
+               </div>
+               
+               <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get updates on our programs and events</p>
+                    <div class="newsletter">
+                         <input type="email" placeholder="Enter your email">
+                         <button><i class="fas fa-paper-plane"></i></button>
+                    </div>
+               </div>
+          </div>
+          
+          <div class="footer-bottom">
+               <div class="social-icons">
+                    <a href="#" target="_blank" title="Facebook">
+                         <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" target="_blank" title="Instagram">
+                         <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" target="_blank" title="YouTube">
+                         <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" target="_blank" title="Twitter">
+                         <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://wa.me/250796870553" target="_blank" title="WhatsApp">
+                         <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" target="_blank" title="LinkedIn">
+                         <i class="fab fa-linkedin-in"></i>
+                    </a>
+               </div>
+               
+               <div class="copyright">
+                    © 2026 The Youth Contest Beyond Vision. All Rights Reserved. Developed by <a href="https://linkedin.com/in/linkedin.com/in/kevin-the-cyber-coder-8443503aa" target="_blank">MUKESHIMANA KEVIN</a>
+               </div>
+          </div>
      </footer>
 
      <script>
-
-          /* HAMBURGER */
+          // ===== MOBILE MENU =====
           function toggleMenu() {
-               document.getElementById("navLinks").classList.toggle("show");
+               const navLinks = document.getElementById('navLinks');
+               const menuIcon = document.getElementById('menuIcon');
+               
+               navLinks.classList.toggle('active');
+               
+               if (navLinks.classList.contains('active')) {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-times');
+               } else {
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+               }
           }
+          
+          // Close menu when clicking a link
+          document.querySelectorAll('.nav-links a').forEach(link => {
+               link.addEventListener('click', () => {
+                    const navLinks = document.getElementById('navLinks');
+                    const menuIcon = document.getElementById('menuIcon');
+                    
+                    if (navLinks.classList.contains('active')) {
+                         navLinks.classList.remove('active');
+                         menuIcon.classList.remove('fa-times');
+                         menuIcon.classList.add('fa-bars');
+                    }
+               });
+          });
+          
+          // Close menu when clicking outside
+          document.addEventListener('click', function(event) {
+               const navLinks = document.getElementById('navLinks');
+               const menuToggle = document.querySelector('.hamburger');
+               
+               if (navLinks.classList.contains('active')) {
+                    const isClickInsideNav = navLinks.contains(event.target);
+                    const isClickOnMenuToggle = menuToggle.contains(event.target);
+                    
+                    if (!isClickInsideNav && !isClickOnMenuToggle) {
+                         navLinks.classList.remove('active');
+                         document.getElementById('menuIcon').classList.remove('fa-times');
+                         document.getElementById('menuIcon').classList.add('fa-bars');
+                    }
+               }
+          });
 
-          /* DONATION AMOUNT */
+          // ===== DONATION AMOUNT =====
           function setAmount(value) {
                document.getElementById("amount").value = value;
           }
 
-          /* BACK TO TOP */
-          window.onscroll = function () {
-               document.getElementById("topBtn").style.display =
-                    window.scrollY > 300 ? "block" : "none";
-          };
-
-          function scrollTopPage() {
-               window.scrollTo({ top: 0, behavior: 'smooth' });
+          // ===== MODAL FUNCTIONS =====
+          function openModal() {
+               const amount = document.getElementById("amount").value;
+               if (!amount || amount <= 0) {
+                    alert("Please enter a valid donation amount!");
+                    return;
+               }
+               
+               document.getElementById("modalAmountDisplay").textContent = "Amount: RWF " + parseInt(amount).toLocaleString();
+               document.getElementById("donateModal").classList.add("show");
+               document.body.style.overflow = "hidden"; // Prevent scrolling
           }
 
+          function closeModal() {
+               document.getElementById("donateModal").classList.remove("show");
+               document.body.style.overflow = "auto";
+          }
+
+          // Close modal when clicking outside
+          window.onclick = function(event) {
+               const modal = document.getElementById("donateModal");
+               if (event.target == modal) {
+                    closeModal();
+               }
+          }
+
+          // Close modal with ESC key
+          document.addEventListener('keydown', function(event) {
+               if (event.key === 'Escape') {
+                    closeModal();
+               }
+          });
+
+          // ===== TAB SWITCHING =====
+          function switchTab(tabName) {
+               // Remove active class from all tabs and contents
+               document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+               document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+               
+               // Add active class to selected tab and content
+               event.target.classList.add('active');
+               document.getElementById(tabName).classList.add('active');
+          }
+
+          // ===== COPY TO CLIPBOARD - FIXED VERSION =====
+          function copyText(text, button) {
+               navigator.clipboard.writeText(text).then(() => {
+                    // Save original button content
+                    const originalHTML = button.innerHTML;
+                    const originalBg = button.style.background;
+                    
+                    // Show success message
+                    button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    button.style.background = '#4CAF50';
+                    
+                    // Reset after 2 seconds
+                    setTimeout(() => {
+                         button.innerHTML = originalHTML;
+                         button.style.background = '#f2b705';
+                    }, 2000);
+               }).catch(err => {
+                    alert('Failed to copy: ' + err);
+               });
+          }
+
+          // ===== BACK TO TOP =====
+          window.addEventListener('scroll', function() {
+               const backToTop = document.getElementById('backToTop');
+               if (window.scrollY > 300) {
+                    backToTop.classList.add('show');
+               } else {
+                    backToTop.classList.remove('show');
+               }
+          });
+          
+          function scrollTopPage() {
+               window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+               });
+          }
      </script>
 
 </body>
